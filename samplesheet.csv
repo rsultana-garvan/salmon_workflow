@@ -1,3 +1,422 @@
 sample,gdc_file_id,case,tissue_type,sample_type,tumor_descriptor,project_id,file_name
-TCGA-XX-0001-01A,00000000-0000-0000-0000-000000000001,TCGA-XX-0001,Tumor,Primary Tumor,Primary,TCGA-XXXX,example_tumor.rna_seq.genomic.gdc_realn.bam
-TCGA-XX-0001-11A,00000000-0000-0000-0000-000000000002,TCGA-XX-0001,Normal,Solid Tissue Normal,Not Applicable,TCGA-XXXX,example_normal.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A10Q-11A,492b1393-81e8-4551-8303-10a22d4423c6,TCGA-BC-A10Q,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,14fc153e-3cb3-4d3f-8259-b73a436f3d0b.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A10Q-01A,35e1cf33-02a8-4e9f-bb57-54b4036e6adf,TCGA-BC-A10Q,Tumor,Primary Tumor,Primary,TCGA-LIHC,e576f331-424e-43f0-af27-20e07d91c826.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A10R-11A,cae6818a-e070-4f4a-a57b-0ca50d62d460,TCGA-BC-A10R,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,c0b92413-c9f7-4a67-9ca7-cb065ac9c407.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A10R-01A,25ca84c6-202e-4759-b7bf-3ca198b2db57,TCGA-BC-A10R,Tumor,Primary Tumor,Primary,TCGA-LIHC,01a67ac4-91db-4a3d-9137-fe2240acc861.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A10T-11A,57b00e74-a992-4a58-b28d-a953ae33e4f3,TCGA-BC-A10T,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,ebbdae1d-a199-4577-a73a-77e9c6a55a92.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A10T-01A,024f0b66-50ff-42ab-b684-803a84750748,TCGA-BC-A10T,Tumor,Primary Tumor,Primary,TCGA-LIHC,533c5b0b-6eda-46c5-9cf0-8c6decb728c9.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A10U-11A,ca6ddcca-a69c-4fca-a042-ad5048af3ff0,TCGA-BC-A10U,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,8f7a6ea3-dbbe-4b88-bb00-718a9ce7411d.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A10U-01A,c9bd2939-1d88-42d0-b765-87bddaf2c448,TCGA-BC-A10U,Tumor,Primary Tumor,Primary,TCGA-LIHC,ae0c04e0-d029-4432-bcd9-96c3c5d5dcd3.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A10W-11A,afdd6c4f-dc0a-4fa6-b199-0fa41ec2ef9c,TCGA-BC-A10W,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,9b5248e9-4b02-4ffc-a3e2-242616d08ed2.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A10W-01A,7c8a4a2f-c6ae-41a4-9d79-e92c3ff70a93,TCGA-BC-A10W,Tumor,Primary Tumor,Primary,TCGA-LIHC,71709b9d-4bb5-443c-89a6-863ddeea86ad.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A10X-11A,b85ca984-3c13-4e1c-95b6-f558cfddaba0,TCGA-BC-A10X,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,d47d25be-4859-450a-a110-0e4bc7e2896b.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A10X-01A,5c06ba94-07b3-40f1-8dbe-f6b32a92adf2,TCGA-BC-A10X,Tumor,Primary Tumor,Primary,TCGA-LIHC,c8675707-b978-48d7-b510-186676ab831a.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A10Y-11A,b550c7c0-849b-40e0-85bb-9af1f324b934,TCGA-BC-A10Y,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,e5ec55da-630f-406e-b561-399fd081e43d.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A10Y-01A,2b9bcad7-1b3d-47c7-afc5-945cec5049c7,TCGA-BC-A10Y,Tumor,Primary Tumor,Primary,TCGA-LIHC,96038519-51a9-4188-bc3c-5e5a4d219a77.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A10Z-11A,9845eaad-f3af-435e-bcf7-6c096bf4e5b5,TCGA-BC-A10Z,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,53cdad59-2abc-49cb-8757-ca9d1fee5c1c.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A10Z-01A,a07e78b9-d4b3-4a3c-9bd1-614ff4d5007c,TCGA-BC-A10Z,Tumor,Primary Tumor,Primary,TCGA-LIHC,72e8b0e1-ff24-4ecf-82d2-24b96b885521.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A110-11A,5875735b-be9d-4019-ac0a-bce4b57235de,TCGA-BC-A110,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,6317d700-9096-4ae7-9b13-40c9b64bf319.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A110-01A,d0b83eb6-e387-4908-b08e-8de04e1daf21,TCGA-BC-A110,Tumor,Primary Tumor,Primary,TCGA-LIHC,e880e928-7728-4184-af70-d4790dbeb3e9.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A216-11A,3d704a33-d88d-42a2-b865-b3da31d2b008,TCGA-BC-A216,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,1432142c-908d-46d7-9a2a-2597a0f00ae8.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A216-01A,48818495-d32f-4b6d-a956-3d94cea5f4dc,TCGA-BC-A216,Tumor,Primary Tumor,Primary,TCGA-LIHC,b5f97bc7-e5cb-4ec7-9e39-4a51bdc36b0d.rna_seq.genomic.gdc_realn.bam
+TCGA-BD-A2L6-11A,dcbbb1b6-baf7-42dd-a6a2-cba4aeabd5f1,TCGA-BD-A2L6,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,44a940fc-2b05-4010-80c0-68bf08b39be6.rna_seq.genomic.gdc_realn.bam
+TCGA-BD-A2L6-01A,2a323130-f070-4f3f-a670-dd3294b74b8c,TCGA-BD-A2L6,Tumor,Primary Tumor,Primary,TCGA-LIHC,11795d2c-eeb4-4d71-ba35-0ceac205bd18.rna_seq.genomic.gdc_realn.bam
+TCGA-BD-A3EP-11A,1d9afbd7-45f8-435a-bbd7-7aca520a50ad,TCGA-BD-A3EP,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,a5aab9e0-f114-4f42-b36e-5f1bdc49f128.rna_seq.genomic.gdc_realn.bam
+TCGA-BD-A3EP-01A,ca9005f6-f8ce-408f-ad11-0df1ed80ce30,TCGA-BD-A3EP,Tumor,Primary Tumor,Primary,TCGA-LIHC,ee85234b-dd0c-4700-b245-f00055f004b6.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A113-11A,24dece84-a916-431c-bcfc-0d7ebebac05d,TCGA-DD-A113,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,789c2a90-968b-4745-ad64-6dd7fe6463ff.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A113-01A,a9ac5c02-8594-482b-b065-4a338e45cd7d,TCGA-DD-A113,Tumor,Primary Tumor,Primary,TCGA-LIHC,056653c5-a60b-424e-ab30-b16246283da3.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A114-11A,16375065-4ab3-4af2-a133-25a72f432238,TCGA-DD-A114,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,8e595756-ee6b-4fd9-9844-6001ea97fa2e.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A114-01A,d4d26f87-d774-4831-a72a-5795f1de1316,TCGA-DD-A114,Tumor,Primary Tumor,Primary,TCGA-LIHC,c4885dd1-1f37-48d2-b6c2-f6ac660c511e.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A116-11A,363a655d-ed02-444b-8fde-229c9a956300,TCGA-DD-A116,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,91bac874-6ad2-4946-9c3f-0ed733975fcf.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A116-01A,4e62a1d4-b69a-4928-994f-20903861c7fc,TCGA-DD-A116,Tumor,Primary Tumor,Primary,TCGA-LIHC,871e5874-2343-46c5-a234-9017a7f29ca2.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A118-11A,7dcae667-e5ed-46d7-ba99-4f5270c89e75,TCGA-DD-A118,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,2b192082-2d70-40aa-9268-5d3d6a3af6eb.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A118-01A,e8895451-cf90-4547-92d0-f8c0d0b58492,TCGA-DD-A118,Tumor,Primary Tumor,Primary,TCGA-LIHC,9f4b7d5e-9bad-4148-95b8-b78564c0cae6.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A119-11A,96d1232f-68b2-4eb0-a114-99d2f349c12c,TCGA-DD-A119,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,a738f130-d151-463b-9889-2d379ebe52d2.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A119-01A,f847e93a-3100-4ba0-b74c-900c9bfa77eb,TCGA-DD-A119,Tumor,Primary Tumor,Primary,TCGA-LIHC,4b5b50cd-2bcf-4c8a-b5d7-09adeef205fd.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A11A-11A,454ff0a1-aa58-47d7-99e4-9b1802b719df,TCGA-DD-A11A,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,87eca9a7-8eb9-43e0-b814-4743ed4f3526.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A11A-01A,0d73f72e-d5bf-4268-bcc4-a4d797b95c68,TCGA-DD-A11A,Tumor,Primary Tumor,Primary,TCGA-LIHC,8e3828b8-8928-4c23-bb86-3dac58b416ae.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A11B-11A,f2931bfa-c560-475f-869f-dc7b3a3d5997,TCGA-DD-A11B,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,58ee401f-87ef-47b1-97ae-797b5d6bd753.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A11B-01A,f1fc4c72-c006-4c9d-a140-0c581e7bbde7,TCGA-DD-A11B,Tumor,Primary Tumor,Primary,TCGA-LIHC,97563695-6be6-442a-8a91-18a203eda794.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A11C-11A,a4cad3e7-afa0-4060-8da0-a4700d52e0f2,TCGA-DD-A11C,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,a922a7b1-be19-490b-80aa-09b1f867a4fd.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A11C-01A,20f36de3-f5f6-4bee-9509-f0c4a2428150,TCGA-DD-A11C,Tumor,Primary Tumor,Primary,TCGA-LIHC,b78a3a1f-984e-417b-861c-e3de9b548bbd.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A11D-11A,1906fd93-0869-4d50-95e8-d153fa7a4d3f,TCGA-DD-A11D,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,c74b62ad-52f4-4488-8628-ffc88df5d1bf.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A11D-01A,03a5f3c4-b8e5-4607-94f7-c9164e9da18e,TCGA-DD-A11D,Tumor,Primary Tumor,Primary,TCGA-LIHC,4bc57c95-5c4e-4aad-a05a-ab5fafd76a1d.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A1EB-11A,11c2bfbc-0b79-49ce-887d-b50f00c689fa,TCGA-DD-A1EB,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,3b21a0fe-8a3b-4473-8bd1-523ab630dc71.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A1EB-01A,a8b8af9f-f115-4960-8449-66deea07ebd4,TCGA-DD-A1EB,Tumor,Primary Tumor,Primary,TCGA-LIHC,983ba5fa-d524-4ce9-af32-f4e4270b043b.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A1EC-11A,c66a1c6b-c382-4e23-a639-5aba04b1432f,TCGA-DD-A1EC,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,2070f2a7-db7f-4070-8997-5c56140c41ae.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A1EC-01A,09d8a084-2249-4c81-970c-a1760045c2fb,TCGA-DD-A1EC,Tumor,Primary Tumor,Primary,TCGA-LIHC,cf9a78e4-5487-4366-94b6-4b85dfef5e4d.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A1EE-11A,ada3c99f-52aa-4f88-9003-b9246c15a8e9,TCGA-DD-A1EE,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,b0271a8a-4b7d-4689-98d3-1378840b485d.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A1EE-01A,af381f4d-f7d2-460a-9bf8-8d578e7a94bf,TCGA-DD-A1EE,Tumor,Primary Tumor,Primary,TCGA-LIHC,767f0df2-87ec-42d7-a644-f0b955be14e5.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A1EG-11A,2cb28f64-0718-472e-8783-65e7da8de9c8,TCGA-DD-A1EG,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,45b37332-1ac3-40bb-b167-44050d144917.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A1EG-01A,0944e128-a694-4156-a734-9f2eaeb1d41e,TCGA-DD-A1EG,Tumor,Primary Tumor,Primary,TCGA-LIHC,72134fea-d641-43dd-9580-ef3ef06a5060.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A1EH-11A,3988c1cd-0f7f-4a8f-9cd7-716e390dcb82,TCGA-DD-A1EH,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,3b4e1fdc-dcc1-4616-93b5-0f44bee5c64d.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A1EH-01A,841044d7-5f6d-4e76-8da7-bb77710d9cfe,TCGA-DD-A1EH,Tumor,Primary Tumor,Primary,TCGA-LIHC,a0a44a0c-be1a-4cfe-a305-9ce2d4cee68d.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A1EI-11A,77a7e72f-a4ef-4894-b9ac-7162851d0fee,TCGA-DD-A1EI,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,4044408b-0b42-407b-9ea3-bab66dedb545.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A1EI-01A,ab26fcdb-741a-4539-8652-3af955d05e89,TCGA-DD-A1EI,Tumor,Primary Tumor,Primary,TCGA-LIHC,cd360b3a-1369-4a13-a13b-5adf4a5e66bf.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A1EJ-11A,5453a238-210d-47cc-a743-83ad63ba8d54,TCGA-DD-A1EJ,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,c9432a6e-4d79-4de2-8ffa-e3b05129f78f.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A1EJ-01A,0ab6fd4a-46d6-46e1-b4ba-922e5c6a4085,TCGA-DD-A1EJ,Tumor,Primary Tumor,Primary,TCGA-LIHC,be4a42fc-e668-44f5-83aa-7976a664490f.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A1EL-11A,e082e9f4-7027-43ec-acb6-207de04abe21,TCGA-DD-A1EL,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,45ea416c-9172-4eda-9d87-b9e17148d2d4.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A1EL-01A,9b51f093-bcd1-4976-a3a6-3d0f1ed4933e,TCGA-DD-A1EL,Tumor,Primary Tumor,Primary,TCGA-LIHC,7b5d9241-4c32-4957-bfb5-d9bc4f711ee6.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A39V-11A,a9cd1579-6942-4bbc-84bb-85e090e23fbc,TCGA-DD-A39V,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,bf424b14-03e8-43a3-a978-ff5fb436886c.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A39V-01A,918d0fa3-76f8-47c7-bc16-b37c254aca05,TCGA-DD-A39V,Tumor,Primary Tumor,Primary,TCGA-LIHC,734ed05f-459e-4cd4-8d1e-e9b2d89df3ea.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A39W-11A,0387d254-753d-4d25-8bcd-ec5536403e57,TCGA-DD-A39W,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,c4d509c2-687f-42f2-a5a9-f92eb054ca39.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A39W-01A,3d9638b4-5574-4f94-a337-5687cfaa146e,TCGA-DD-A39W,Tumor,Primary Tumor,Primary,TCGA-LIHC,00e08404-4c50-4a1a-9036-0f0dd3988db8.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A39X-11A,1a46b3a8-8af0-42f6-a37d-5ed7d91ce9b6,TCGA-DD-A39X,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,458a31ae-18bf-4ffd-8f5c-d647a6e4adf3.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A39X-01A,f149203b-0290-449d-b916-3d1e39500aa8,TCGA-DD-A39X,Tumor,Primary Tumor,Primary,TCGA-LIHC,b039b593-e5d0-47e2-b292-9a6ef4cb8af8.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A39Z-11A,0a0a6dd9-bb11-454e-a327-2268ce690d31,TCGA-DD-A39Z,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,414b9abf-8e4b-4d3a-b97d-34fb384b43d7.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A39Z-01A,5be3a1dc-6c65-4b59-ae7c-5697177b608b,TCGA-DD-A39Z,Tumor,Primary Tumor,Primary,TCGA-LIHC,cc854324-a53b-46dd-88da-42c90e73ec4a.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A3A1-11A,148ee412-97cc-420b-9049-a2e7daf02219,TCGA-DD-A3A1,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,d57a7480-e0ce-416b-8db1-d09302cc0d89.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A3A1-01A,8e6ee5a5-7fe5-4c5a-948a-e086d007e547,TCGA-DD-A3A1,Tumor,Primary Tumor,Primary,TCGA-LIHC,4c58ac19-2c85-41c8-9a88-c5e6ac02e465.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A3A2-11A,6fef0afd-ef3e-4087-ac81-1077a7ba9665,TCGA-DD-A3A2,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,176a155c-064d-4c25-a355-430c20fb8804.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A3A2-01A,f94614c0-79d5-4a29-92b1-7052032e30c3,TCGA-DD-A3A2,Tumor,Primary Tumor,Primary,TCGA-LIHC,bedfc888-5d34-4fae-bc3c-13255bc47c2b.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A3A3-11A,edee0857-3257-468c-8524-66d463d22eaf,TCGA-DD-A3A3,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,92385f19-0c30-4014-845b-cad864782b61.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A3A3-01A,b9e125c4-36fe-4c20-8a49-fb086f67e046,TCGA-DD-A3A3,Tumor,Primary Tumor,Primary,TCGA-LIHC,765304e7-ec35-4aef-a646-8f264044cf23.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A3A4-11A,206466f5-ba52-4637-83d6-7a012449172b,TCGA-DD-A3A4,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,c30fdec0-6bbc-4719-ad1e-ff1e15eae98e.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A3A4-01A,8cab796b-d536-4f17-aae4-21d9abbd523d,TCGA-DD-A3A4,Tumor,Primary Tumor,Primary,TCGA-LIHC,427c0560-88ff-45a9-98a7-9d7cf3354138.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A3A5-11A,5ab2972c-ab20-43b2-951e-734278295076,TCGA-DD-A3A5,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,d822f9c0-f1e2-4a2e-9636-f520806e6ce5.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A3A5-01A,4002b33c-6903-4186-9727-4a4bfbd370d5,TCGA-DD-A3A5,Tumor,Primary Tumor,Primary,TCGA-LIHC,d4db8178-db27-4b1c-8cf9-018420a91335.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A3A6-11A,feab2078-3ab6-48e1-aa84-cdf03b1c0c7b,TCGA-DD-A3A6,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,bb4346c2-8149-4a5f-ae47-e6615bd61df2.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A3A6-01A,0f3ad0c6-2cf4-462c-aeec-74d33e04bf4d,TCGA-DD-A3A6,Tumor,Primary Tumor,Primary,TCGA-LIHC,fd81a481-5d7f-4e3a-a0ba-eba4f33591bc.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A3A8-11A,3d4eabcc-73aa-4a24-844e-70dc880ae66a,TCGA-DD-A3A8,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,c54c553f-7024-4425-b489-dd959bee3e62.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A3A8-01A,755ac142-8a4e-44d5-ae9f-44a56d9d5cfb,TCGA-DD-A3A8,Tumor,Primary Tumor,Primary,TCGA-LIHC,717793cb-c840-4f7c-850d-cb80edb1b6b7.rna_seq.genomic.gdc_realn.bam
+TCGA-EP-A12J-11A,cd33ba34-e19a-41d9-b115-a28788a2b30e,TCGA-EP-A12J,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,6f8d77aa-5852-4467-8ef9-b7881294b969.rna_seq.genomic.gdc_realn.bam
+TCGA-EP-A12J-01A,26df4907-0cf6-4c07-87a2-4ffe00161f49,TCGA-EP-A12J,Tumor,Primary Tumor,Primary,TCGA-LIHC,33e23705-397c-4651-beea-254110c365e4.rna_seq.genomic.gdc_realn.bam
+TCGA-EP-A26S-11A,7da93179-b8da-4047-a031-3791a6ace78d,TCGA-EP-A26S,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,22fc2b56-fe94-4b09-ae7d-37d463b3995d.rna_seq.genomic.gdc_realn.bam
+TCGA-EP-A26S-01A,43848d6e-814f-4ccb-8c5c-d8bf64e05a26,TCGA-EP-A26S,Tumor,Primary Tumor,Primary,TCGA-LIHC,7519dae8-dfee-413d-995d-d005fdddb4b1.rna_seq.genomic.gdc_realn.bam
+TCGA-EP-A3RK-11A,ec190ccc-4acd-42ac-8c98-8181c6681d53,TCGA-EP-A3RK,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,28e28451-9c55-4f01-9ac1-fda75a6f828d.rna_seq.genomic.gdc_realn.bam
+TCGA-EP-A3RK-01A,98313381-1dd9-4671-9304-3642bad04832,TCGA-EP-A3RK,Tumor,Primary Tumor,Primary,TCGA-LIHC,5d220ed4-22c2-4ff1-b597-3822204d57e7.rna_seq.genomic.gdc_realn.bam
+TCGA-ES-A2HT-11A,2f851200-c2ff-4bfc-a560-13f431720633,TCGA-ES-A2HT,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,0f370106-5023-4198-810b-63f84577269a.rna_seq.genomic.gdc_realn.bam
+TCGA-ES-A2HT-01A,ff026bf1-b304-455d-ace6-9b67db495ce5,TCGA-ES-A2HT,Tumor,Primary Tumor,Primary,TCGA-LIHC,62b64fce-b9de-4151-bf56-d2ee50153e25.rna_seq.genomic.gdc_realn.bam
+TCGA-FV-A23B-11A,97831bb6-02e9-427e-8d25-7194a4c42825,TCGA-FV-A23B,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,cd36b4d0-5a38-4ce0-abcc-d8272968bf5c.rna_seq.genomic.gdc_realn.bam
+TCGA-FV-A23B-01A,713ff151-54c6-4c6a-a779-38cbe12f86fe,TCGA-FV-A23B,Tumor,Primary Tumor,Primary,TCGA-LIHC,eb81efb0-22be-40ad-93a7-1379c09169fb.rna_seq.genomic.gdc_realn.bam
+TCGA-FV-A2QR-11A,14ae3e44-d363-419e-a724-f7d40ffb730b,TCGA-FV-A2QR,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,cfa3467d-9796-4c34-b2ca-9cda7a5d20dc.rna_seq.genomic.gdc_realn.bam
+TCGA-FV-A2QR-01A,fbb98a51-afd9-450c-97fc-60b2f2fb00d8,TCGA-FV-A2QR,Tumor,Primary Tumor,Primary,TCGA-LIHC,bdf99841-cf6b-4544-823f-3e50d1fe04f1.rna_seq.genomic.gdc_realn.bam
+TCGA-FV-A3I0-11A,dac66d3f-7e26-4f5c-bdd5-a5fe65ca8b09,TCGA-FV-A3I0,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,23a791d2-b0fd-4c72-b3e8-ab3ecfb3c4b8.rna_seq.genomic.gdc_realn.bam
+TCGA-FV-A3I0-01A,d6f1c2b3-3d1b-4b93-909b-d0fa18332e18,TCGA-FV-A3I0,Tumor,Primary Tumor,Primary,TCGA-LIHC,b575a230-b1ee-40b0-934a-64d73e3ca0af.rna_seq.genomic.gdc_realn.bam
+TCGA-FV-A3I1-11A,d3fbbb56-4dbd-46a4-999f-9aca851ac534,TCGA-FV-A3I1,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,6b8fc8fd-e32d-43fa-8f8c-fa0b38ce9b69.rna_seq.genomic.gdc_realn.bam
+TCGA-FV-A3I1-01A,a3614d95-449e-4a3f-a1c3-8a649f9c11f9,TCGA-FV-A3I1,Tumor,Primary Tumor,Primary,TCGA-LIHC,50cae4c7-fef8-40fa-a3ed-d14a34eb6103.rna_seq.genomic.gdc_realn.bam
+TCGA-FV-A3R2-11A,be85f397-9e59-472e-8a3a-2920c4adfc6e,TCGA-FV-A3R2,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,d11ccf39-543b-4da6-a9ac-d49d9afe2054.rna_seq.genomic.gdc_realn.bam
+TCGA-FV-A3R2-01A,eb06689d-4861-46f2-bab0-06cf3918971c,TCGA-FV-A3R2,Tumor,Primary Tumor,Primary,TCGA-LIHC,c83b9b6b-401b-4999-b075-3eaac28b0957.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A3CH-11A,aa5e4f78-5190-4f06-8c5b-4cab7bdd81c6,TCGA-G3-A3CH,Normal,Solid Tissue Normal,Not Applicable,TCGA-LIHC,a2cbad43-f7a6-4018-995f-82b22aa6fc8b.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A3CH-01A,132aad4f-2471-4254-808f-dfe12972f9c8,TCGA-G3-A3CH,Tumor,Primary Tumor,Primary,TCGA-LIHC,e92a1abd-e8c0-4591-ae3f-4679af48275e.rna_seq.genomic.gdc_realn.bam
+TCGA-2V-A95S-01A,e330821a-2a86-4b7a-bed5-2fb1e36e57e0,TCGA-2V-A95S,Tumor,Primary Tumor,Primary,TCGA-LIHC,f96109b6-750e-48d4-800f-a90649830f59.rna_seq.genomic.gdc_realn.bam
+TCGA-2Y-A9GS-01A,fba2f1f5-894e-4413-b154-a9ee31575e60,TCGA-2Y-A9GS,Tumor,Primary Tumor,Primary,TCGA-LIHC,4b0c5f90-5ce7-4f70-b5ef-6bd77ed04534.rna_seq.genomic.gdc_realn.bam
+TCGA-2Y-A9GT-01A,c3e3faec-e3ea-4da5-88e3-e79e65e63275,TCGA-2Y-A9GT,Tumor,Primary Tumor,Primary,TCGA-LIHC,c843bc23-4341-4136-bc1e-fe4177eb3540.rna_seq.genomic.gdc_realn.bam
+TCGA-2Y-A9GU-01A,24f757a8-d062-481d-aac8-05d08c0304e6,TCGA-2Y-A9GU,Tumor,Primary Tumor,Primary,TCGA-LIHC,a7d51d09-db64-418f-a44f-574d3fbe3501.rna_seq.genomic.gdc_realn.bam
+TCGA-2Y-A9GV-01A,94f69bba-28b2-4625-baff-e55e856458b4,TCGA-2Y-A9GV,Tumor,Primary Tumor,Primary,TCGA-LIHC,129a524f-97d3-4433-a63d-18e807af3f04.rna_seq.genomic.gdc_realn.bam
+TCGA-2Y-A9GW-01A,6f1a023f-6a11-4951-bc88-008dbe95af3f,TCGA-2Y-A9GW,Tumor,Primary Tumor,Primary,TCGA-LIHC,65cef856-5e89-4954-bf0c-532e188c1646.rna_seq.genomic.gdc_realn.bam
+TCGA-2Y-A9GX-01A,e6493e77-af01-446a-99c6-b6bb48e7734e,TCGA-2Y-A9GX,Tumor,Primary Tumor,Primary,TCGA-LIHC,c169d445-fd3f-45b8-bdff-d91951609960.rna_seq.genomic.gdc_realn.bam
+TCGA-2Y-A9GY-01A,90b9e3e2-6c5a-4187-b99f-bbd0da5c3f7e,TCGA-2Y-A9GY,Tumor,Primary Tumor,Primary,TCGA-LIHC,17692fc8-9ad4-4751-b389-707f12d1b357.rna_seq.genomic.gdc_realn.bam
+TCGA-2Y-A9GZ-01A,af92b010-123c-484c-9838-179c5a1105e4,TCGA-2Y-A9GZ,Tumor,Primary Tumor,Primary,TCGA-LIHC,706dad3a-fff4-49dd-b4ca-12a411d8726f.rna_seq.genomic.gdc_realn.bam
+TCGA-2Y-A9H0-01A,ac1ab3a3-d229-453a-858e-b3f310cb70f1,TCGA-2Y-A9H0,Tumor,Primary Tumor,Primary,TCGA-LIHC,6250f43f-aa5e-4382-a359-e90c65d5aec6.rna_seq.genomic.gdc_realn.bam
+TCGA-2Y-A9H1-01A,3bfc50f5-3654-4681-95ed-27f40ae12d1b,TCGA-2Y-A9H1,Tumor,Primary Tumor,Primary,TCGA-LIHC,f7b0a537-4bfc-4cb1-9c5c-f3dd917405d5.rna_seq.genomic.gdc_realn.bam
+TCGA-2Y-A9H2-01A,bebb5d75-9008-4d9f-b8d9-a160f21e21f8,TCGA-2Y-A9H2,Tumor,Primary Tumor,Primary,TCGA-LIHC,00be7d10-fd2d-4483-a712-72f24846610f.rna_seq.genomic.gdc_realn.bam
+TCGA-2Y-A9H3-01A,ccefbed4-4a09-4657-a4d7-86840e4f5b8b,TCGA-2Y-A9H3,Tumor,Primary Tumor,Primary,TCGA-LIHC,974d3345-ad1d-49c6-a55d-bbe364b5a44e.rna_seq.genomic.gdc_realn.bam
+TCGA-2Y-A9H4-01A,e1838067-3bec-4905-9f88-dd3d12ee7929,TCGA-2Y-A9H4,Tumor,Primary Tumor,Primary,TCGA-LIHC,d0b863c1-59d4-456d-a408-6db40db6c06b.rna_seq.genomic.gdc_realn.bam
+TCGA-2Y-A9H5-01A,8da2332e-6a8f-46c9-9674-35e0f9e63361,TCGA-2Y-A9H5,Tumor,Primary Tumor,Primary,TCGA-LIHC,e2288704-0fb1-41cc-82f8-b73e41ebb576.rna_seq.genomic.gdc_realn.bam
+TCGA-2Y-A9H6-01A,66834a24-e35d-44a0-82c1-97ce8e8551f8,TCGA-2Y-A9H6,Tumor,Primary Tumor,Primary,TCGA-LIHC,4d017184-bc82-462e-8331-5f985205f201.rna_seq.genomic.gdc_realn.bam
+TCGA-2Y-A9H7-01A,0db1b80e-716c-44fb-bc94-476c01d8048b,TCGA-2Y-A9H7,Tumor,Primary Tumor,Primary,TCGA-LIHC,63e01cb1-aae8-466c-8c89-cc26f3ed3492.rna_seq.genomic.gdc_realn.bam
+TCGA-2Y-A9H8-01A,edc07398-2ba8-48ed-808c-9ed003134d36,TCGA-2Y-A9H8,Tumor,Primary Tumor,Primary,TCGA-LIHC,7b0ef66b-10f6-4e0f-bd72-0546fa26b6e1.rna_seq.genomic.gdc_realn.bam
+TCGA-2Y-A9H9-01A,5c29ee95-c8e2-4ab6-94e7-bd147aa98a1c,TCGA-2Y-A9H9,Tumor,Primary Tumor,Primary,TCGA-LIHC,fda7f242-9bc2-477e-8603-8495d2e9f225.rna_seq.genomic.gdc_realn.bam
+TCGA-2Y-A9HA-01A,a04f7430-7996-498c-beb6-e826bac8773d,TCGA-2Y-A9HA,Tumor,Primary Tumor,Primary,TCGA-LIHC,14e80841-cfb9-42fb-9cae-db9f282ba4fd.rna_seq.genomic.gdc_realn.bam
+TCGA-2Y-A9HB-01A,35d9f567-ef7f-464c-8211-7c3396277bdf,TCGA-2Y-A9HB,Tumor,Primary Tumor,Primary,TCGA-LIHC,a2289b57-3c34-4fec-a5c5-10bea95e30fb.rna_seq.genomic.gdc_realn.bam
+TCGA-3K-AAZ8-01A,e98a74b4-9430-40cc-8bf3-b2d07a6f5ee7,TCGA-3K-AAZ8,Tumor,Primary Tumor,Primary,TCGA-LIHC,fc47ffc6-4a8e-446e-91d9-e983362c6dfe.rna_seq.genomic.gdc_realn.bam
+TCGA-4R-AA8I-01A,e4b68a08-770d-478e-b3b6-e22dcad1362e,TCGA-4R-AA8I,Tumor,Primary Tumor,Primary,TCGA-LIHC,495c8ae2-4d4d-49ac-9b0a-3081f02fd041.rna_seq.genomic.gdc_realn.bam
+TCGA-5C-A9VG-01A,6381d955-7d88-4444-89a5-a8460971768f,TCGA-5C-A9VG,Tumor,Primary Tumor,Primary,TCGA-LIHC,5957c3ef-b6e7-4b4d-b8cf-d04f85b4160b.rna_seq.genomic.gdc_realn.bam
+TCGA-5C-A9VH-01A,a0f6016b-96ed-4bee-8faa-8644a36724ce,TCGA-5C-A9VH,Tumor,Primary Tumor,Primary,TCGA-LIHC,1a29d66d-8bda-44d8-9b7c-262d69825276.rna_seq.genomic.gdc_realn.bam
+TCGA-5C-AAPD-01A,fcdb9bfc-7cbe-4b0c-8967-44b1361989dd,TCGA-5C-AAPD,Tumor,Primary Tumor,Primary,TCGA-LIHC,7f594a3e-81f0-4181-a8cc-270e30a1cc11.rna_seq.genomic.gdc_realn.bam
+TCGA-5R-AA1C-01A,fb866b9b-8092-4a8e-887a-632a681ee819,TCGA-5R-AA1C,Tumor,Primary Tumor,Primary,TCGA-LIHC,64c42fa6-9a40-4007-a0c1-c71dd67f402a.rna_seq.genomic.gdc_realn.bam
+TCGA-5R-AA1D-01A,eb7a8ec8-5aeb-429e-a2da-2f0c63f188b3,TCGA-5R-AA1D,Tumor,Primary Tumor,Primary,TCGA-LIHC,26be3fb3-4d31-4707-8af2-e21220262bb3.rna_seq.genomic.gdc_realn.bam
+TCGA-5R-AAAM-01A,27889a14-1727-453b-995f-fa5c0e791bae,TCGA-5R-AAAM,Tumor,Primary Tumor,Primary,TCGA-LIHC,d9c7fcac-4608-4952-8678-71e82b96b29c.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-4072-01B,012c7856-b310-41a4-95c7-712d2a792836,TCGA-BC-4072,Tumor,Primary Tumor,Primary,TCGA-LIHC,c93de8da-4aa3-498e-83df-0ae6819b3d74.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-4073-01B,3c288dec-dcfa-4fea-8a39-b7e73fc6ba48,TCGA-BC-4073,Tumor,Primary Tumor,Primary,TCGA-LIHC,4fd965ea-f490-456a-83fc-38cf9be8f44e.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A10S-01A,1b6aee72-e71b-47a6-9557-2b1a8fb5881c,TCGA-BC-A10S,Tumor,Primary Tumor,Primary,TCGA-LIHC,2932aeb2-cb1f-43bd-abb2-701a0b9e2875.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A112-01A,5dbe59c8-d1d9-43ea-b467-cde27b0adc01,TCGA-BC-A112,Tumor,Primary Tumor,Primary,TCGA-LIHC,96aa5d94-f2d7-4173-8477-ccbfaa3451b5.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A217-01A,52de5049-c817-46a4-8738-dbb08e4f7968,TCGA-BC-A217,Tumor,Primary Tumor,Primary,TCGA-LIHC,9f1e5b80-35f2-4e10-bd73-b031bb2401bd.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A3KF-01A,519c055c-2620-4a27-ba7b-9c9b80b3622e,TCGA-BC-A3KF,Tumor,Primary Tumor,Primary,TCGA-LIHC,4a47d2f4-1b4e-4c95-a58b-81e5bc954160.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A3KG-01A,1156bf1b-eec4-4255-8c43-501c250426dc,TCGA-BC-A3KG,Tumor,Primary Tumor,Primary,TCGA-LIHC,ea02af31-a02a-457a-acca-6003c8584b2d.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A5W4-01A,2b6f3ba5-7872-4c43-96ed-571a883ce06f,TCGA-BC-A5W4,Tumor,Primary Tumor,Primary,TCGA-LIHC,8f7fc4d6-30f6-4361-94f3-48ef923cc9ec.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A69H-01A,1809fc3a-e860-4334-ae1c-9bdd6b6ccb5c,TCGA-BC-A69H,Tumor,Primary Tumor,Primary,TCGA-LIHC,d17659bf-fc02-4c26-bb3c-206fc71e644d.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A69I-01A,1c0502a4-6f9e-4923-87a7-b4cbe10d465f,TCGA-BC-A69I,Tumor,Primary Tumor,Primary,TCGA-LIHC,8096a292-e2e5-4e8f-af7b-ce2e41a5544f.rna_seq.genomic.gdc_realn.bam
+TCGA-BC-A8YO-01A,181b91ca-14a4-40c5-8950-06eff8f93ee9,TCGA-BC-A8YO,Tumor,Primary Tumor,Primary,TCGA-LIHC,69044cff-0eaa-4acc-a163-4b9ab15a7595.rna_seq.genomic.gdc_realn.bam
+TCGA-BD-A3ER-01A,61d9a2ce-7e9d-4711-829c-00e973e55c35,TCGA-BD-A3ER,Tumor,Primary Tumor,Primary,TCGA-LIHC,f9c05849-4905-4ded-82ff-0f83be46b772.rna_seq.genomic.gdc_realn.bam
+TCGA-BW-A5NO-01A,a65b8613-dbdc-40d5-994d-c13757dfd2d2,TCGA-BW-A5NO,Tumor,Primary Tumor,Primary,TCGA-LIHC,2d9df75d-2a82-4612-9910-2f9252129f61.rna_seq.genomic.gdc_realn.bam
+TCGA-BW-A5NP-01A,9ce6dfc4-cc02-485a-b27e-f1793985b899,TCGA-BW-A5NP,Tumor,Primary Tumor,Primary,TCGA-LIHC,16d06971-fbf9-4b5f-b119-2816c48bcfb7.rna_seq.genomic.gdc_realn.bam
+TCGA-BW-A5NQ-01A,f8aaf267-8861-48f7-a3c7-328d147bda25,TCGA-BW-A5NQ,Tumor,Primary Tumor,Primary,TCGA-LIHC,1a7e9700-1994-4624-bfe9-e94f33ee3989.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-5258-01A,e62fa938-beb5-4586-8bda-b8dc7c3b3414,TCGA-CC-5258,Tumor,Primary Tumor,Primary,TCGA-LIHC,1dc8062e-ec15-4146-a586-112cf061e620.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-5259-01A,ac9cb5c2-106a-4ffe-84eb-3e9b9c4036d9,TCGA-CC-5259,Tumor,Primary Tumor,Primary,TCGA-LIHC,bf31551a-22a7-4840-b734-748efb6301c4.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-5260-01A,3e28e616-0a0c-4183-9dde-31c208733b69,TCGA-CC-5260,Tumor,Primary Tumor,Primary,TCGA-LIHC,45be9c1e-b486-4657-8446-0aa69d88bf90.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-5261-01A,2daeffd7-1bf8-405a-87ec-06a7c8bdd27a,TCGA-CC-5261,Tumor,Primary Tumor,Primary,TCGA-LIHC,e615e629-be8c-4dce-a004-160e9d69b2db.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-5262-01A,abff52c9-aa43-4557-8879-6c8b287d2fc6,TCGA-CC-5262,Tumor,Primary Tumor,Primary,TCGA-LIHC,9d164d74-ec27-4cef-81b0-0580550e96af.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-5263-01A,6c79ebbd-480d-4ed7-94d3-cdb1d60e19d6,TCGA-CC-5263,Tumor,Primary Tumor,Primary,TCGA-LIHC,79c7fd6b-6178-4857-815f-84e0286cb439.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-5264-01A,ffa634ba-0dfa-4b0b-8657-5c42c08b0def,TCGA-CC-5264,Tumor,Primary Tumor,Primary,TCGA-LIHC,4fd3d968-f8ba-445e-93c9-b87c79c66222.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A123-01A,d04e670a-94eb-4249-bcdd-25e58f720e89,TCGA-CC-A123,Tumor,Primary Tumor,Primary,TCGA-LIHC,209d1c0d-246c-4981-8ec5-ba5c71f61340.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A1HT-01A,eb9c7462-e903-4494-b08a-e919f8c1c59d,TCGA-CC-A1HT,Tumor,Primary Tumor,Primary,TCGA-LIHC,7df90db3-232d-4e82-b960-7dcee63635bd.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A3M9-01A,48bc5529-69de-4f74-90b2-1e8ad8e96f42,TCGA-CC-A3M9,Tumor,Primary Tumor,Primary,TCGA-LIHC,84e50732-46c9-46c4-9619-1bb14f5205ae.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A3MA-01A,f4366437-af51-4f8c-8a37-3c02671fd5de,TCGA-CC-A3MA,Tumor,Primary Tumor,Primary,TCGA-LIHC,09264879-4172-4297-a98a-32eade65d63b.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A3MB-01A,3b3a2dfc-f164-4ad9-abc5-c9f99750cafd,TCGA-CC-A3MB,Tumor,Primary Tumor,Primary,TCGA-LIHC,a4bcd2df-1155-4528-86bc-232b0349c1a0.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A3MC-01A,65106dd0-770e-400b-a568-5a3ca0282d85,TCGA-CC-A3MC,Tumor,Primary Tumor,Primary,TCGA-LIHC,b8347a97-a39f-4ade-8740-ef405eae9955.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A5UC-01A,11d556fd-63ac-4b8c-a15c-a112e77548a7,TCGA-CC-A5UC,Tumor,Primary Tumor,Primary,TCGA-LIHC,14e1be2c-29eb-4d35-b813-c29d85b096c4.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A5UD-01A,788c0dfc-2eee-4ca4-9164-4c6b4bbe7128,TCGA-CC-A5UD,Tumor,Primary Tumor,Primary,TCGA-LIHC,9e28b00a-85df-4126-a619-cffc2d5abad2.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A5UE-01A,e17e04bc-0c30-4ec9-a12f-df941d136ba1,TCGA-CC-A5UE,Tumor,Primary Tumor,Primary,TCGA-LIHC,1523dcd5-18e0-464b-a443-eaa98da5f9aa.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A7IE-01A,ed8fcb98-3708-4255-a5a5-223b052ed2dd,TCGA-CC-A7IE,Tumor,Primary Tumor,Primary,TCGA-LIHC,3ed45813-2a31-43ca-944e-e671af9f9b91.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A7IF-01A,6cb5e0e2-9a4a-42c5-a2da-2f7953fca2a7,TCGA-CC-A7IF,Tumor,Primary Tumor,Primary,TCGA-LIHC,46622c50-de5b-4dde-a9c7-386d571817d8.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A7IG-01A,b94259fa-0287-47ac-abb6-6a761c95b79f,TCGA-CC-A7IG,Tumor,Primary Tumor,Primary,TCGA-LIHC,4586df36-efce-4c32-8788-6789935fdcc5.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A7IH-01A,77d4d022-a7a9-467d-9604-7dbeb79f3eb5,TCGA-CC-A7IH,Tumor,Primary Tumor,Primary,TCGA-LIHC,7e019662-154e-4eca-b85c-ac01411fabea.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A7II-01A,08f39fe2-c5ed-4830-8a66-64428c85e8dc,TCGA-CC-A7II,Tumor,Primary Tumor,Primary,TCGA-LIHC,8e3661d6-d095-490c-bc01-d8d7b3f23ed9.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A7IJ-01A,a3f05bd4-e733-43c4-b110-e527bd76c470,TCGA-CC-A7IJ,Tumor,Primary Tumor,Primary,TCGA-LIHC,e6c37259-ade1-42e8-8087-88e04862218c.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A7IK-01A,476b461d-ee92-4fe9-9eb8-fd0b3355d7d6,TCGA-CC-A7IK,Tumor,Primary Tumor,Primary,TCGA-LIHC,1b8a76cc-0a8b-422b-901e-2c1a45fb9486.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A7IL-01A,2afa2d6d-1f80-4578-a872-41055417fa12,TCGA-CC-A7IL,Tumor,Primary Tumor,Primary,TCGA-LIHC,4df97711-6ecf-483c-a2c7-4952c44a2b69.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A8HS-01A,767c7568-cf8a-4530-8222-d4d77f0ca029,TCGA-CC-A8HS,Tumor,Primary Tumor,Primary,TCGA-LIHC,a877ebcc-8616-4dfd-b00b-bdd6f45d6371.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A8HT-01A,483b486d-5990-424e-9374-af4da95775c3,TCGA-CC-A8HT,Tumor,Primary Tumor,Primary,TCGA-LIHC,a580b9de-6718-427e-88b4-612c04876d1e.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A8HU-01A,14394a43-9eb7-4def-9209-a267446b8396,TCGA-CC-A8HU,Tumor,Primary Tumor,Primary,TCGA-LIHC,e6a2ee0a-fc09-4f09-a78e-c9d1916720cc.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A8HV-01A,a66ffb4d-dcd1-49e7-bbd5-17f4693c6a8c,TCGA-CC-A8HV,Tumor,Primary Tumor,Primary,TCGA-LIHC,c7228ad9-de8e-45c5-8e6d-e9151b848106.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A9FS-01A,6208b792-5ba8-4db9-b327-a31683de12ff,TCGA-CC-A9FS,Tumor,Primary Tumor,Primary,TCGA-LIHC,c1224885-8e33-45f5-a9ee-431c9b79fb9e.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A9FU-01A,6b90d19f-4d03-418b-935d-ad17cd2bd71f,TCGA-CC-A9FU,Tumor,Primary Tumor,Primary,TCGA-LIHC,7db97dea-5d1e-4a8a-be9c-4e0ab324c4ae.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A9FV-01A,3ba6b781-e5d0-41df-a5e4-83266e4caf71,TCGA-CC-A9FV,Tumor,Primary Tumor,Primary,TCGA-LIHC,85f6b345-ab15-4095-9686-b434221b66e6.rna_seq.genomic.gdc_realn.bam
+TCGA-CC-A9FW-01A,6828ef41-4209-4e04-81f6-3ac9ad91b6f4,TCGA-CC-A9FW,Tumor,Primary Tumor,Primary,TCGA-LIHC,927fbb8a-acc0-4f3a-9d58-20650e187554.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A115-01A,55315241-077b-4944-b4df-4d6a442f08a8,TCGA-DD-A115,Tumor,Primary Tumor,Primary,TCGA-LIHC,863ee447-1262-4d09-b98b-4f3a3976eaa5.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A1EA-01A,b13ec69a-c37c-47ac-85bd-dc08b76f9a4d,TCGA-DD-A1EA,Tumor,Primary Tumor,Primary,TCGA-LIHC,eee7d179-f3bd-4752-a745-28bf812e572e.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A1ED-01A,ccde02d2-46cb-4f01-9c67-510bdbd3bdc7,TCGA-DD-A1ED,Tumor,Primary Tumor,Primary,TCGA-LIHC,7f4dfecb-1ab7-411c-80cb-4613251b75a7.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A1EF-01A,bb89917a-a439-4243-8e0c-1c8ed465c8cb,TCGA-DD-A1EF,Tumor,Primary Tumor,Primary,TCGA-LIHC,1106e478-61a7-423e-8489-cb7e940aa897.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A1EK-01A,8fa4e2e4-bea8-4f63-9380-85c69fb4e6fb,TCGA-DD-A1EK,Tumor,Primary Tumor,Primary,TCGA-LIHC,df0a6cb8-24c8-4e68-9458-2b76d9f13ee0.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A39Y-01A,90ad3755-9858-4b2a-bd8f-5ad4fb2b2fb9,TCGA-DD-A39Y,Tumor,Primary Tumor,Primary,TCGA-LIHC,f5092ee7-2656-4aa5-b0c3-884aadb9dbf8.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A3A7-01A,4e9389f6-bc64-485d-aae3-7e9150369a16,TCGA-DD-A3A7,Tumor,Primary Tumor,Primary,TCGA-LIHC,caee412d-a4b7-4bb7-b32b-fc1ea37dae0d.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A3A9-01A,b59921ce-7fc6-4dc2-aab7-5833b9caafb3,TCGA-DD-A3A9,Tumor,Primary Tumor,Primary,TCGA-LIHC,06df9723-9ae2-49ff-bd42-e8826faa096e.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A4NA-01A,f9d837f6-f787-471f-a998-c62492cb1292,TCGA-DD-A4NA,Tumor,Primary Tumor,Primary,TCGA-LIHC,9a15fd31-f487-4205-adcd-ceb6edd88ea8.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A4NB-01A,a56d96c7-6fec-44e1-9de3-c78f5bf3b5f8,TCGA-DD-A4NB,Tumor,Primary Tumor,Primary,TCGA-LIHC,6d0497fb-e6ce-48d7-81a3-f8f40e31744b.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A4ND-01A,4a73286c-6a5e-4a8e-9d79-09ee92e50ed3,TCGA-DD-A4ND,Tumor,Primary Tumor,Primary,TCGA-LIHC,2cdf0703-60ea-4ffb-aa2f-808a40d4815a.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A4NE-01A,e2e46cca-4865-4a23-ac13-268cef524f21,TCGA-DD-A4NE,Tumor,Primary Tumor,Primary,TCGA-LIHC,3a390e78-ce52-4743-898c-8c529b342cad.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A4NF-01A,2feaa542-6f33-42f0-8a7f-5931ee9baba1,TCGA-DD-A4NF,Tumor,Primary Tumor,Primary,TCGA-LIHC,c7bf2ffe-055a-4658-9a6a-c2f2e6ddc7df.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A4NG-01A,f430b23a-4c92-4011-88fa-4be75d29ef9b,TCGA-DD-A4NG,Tumor,Primary Tumor,Primary,TCGA-LIHC,33e24624-f59a-4d50-b12b-28136db9f57d.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A4NH-01A,05e6ad69-bb55-4b13-8ced-92e1241e8d70,TCGA-DD-A4NH,Tumor,Primary Tumor,Primary,TCGA-LIHC,4bc7214f-1bca-4656-a8de-34ea13dca500.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A4NI-01A,23a65856-9ed1-47e8-8604-cb86b15f3a56,TCGA-DD-A4NI,Tumor,Primary Tumor,Primary,TCGA-LIHC,96d07b9b-c31c-40cc-8e12-0748cafbf5cd.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A4NJ-01A,cce4d307-edc4-4cd2-aca7-2ae2ef649cc0,TCGA-DD-A4NJ,Tumor,Primary Tumor,Primary,TCGA-LIHC,eade4cc1-86ca-4a1c-a87b-cfdd76d9a060.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A4NK-01A,2440f066-066c-47c9-9215-e7ad33b942d8,TCGA-DD-A4NK,Tumor,Primary Tumor,Primary,TCGA-LIHC,263a1bf6-1d33-4148-8c26-5607d03f8099.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A4NL-01A,38f52bee-0f1b-4461-94a1-3192fc02c09c,TCGA-DD-A4NL,Tumor,Primary Tumor,Primary,TCGA-LIHC,571cd609-a911-4617-95ae-f55ec2805067.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A4NN-01A,e09aa852-88de-4299-915d-454fe70fa914,TCGA-DD-A4NN,Tumor,Primary Tumor,Primary,TCGA-LIHC,bc0e3498-e86a-4629-aa6f-9d1003ae99b2.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A4NO-01A,8a736b90-9347-4184-a234-1b1c926b259c,TCGA-DD-A4NO,Tumor,Primary Tumor,Primary,TCGA-LIHC,402a5fcc-3fd0-4061-93e7-1565bdc84a99.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A4NP-01A,edb5e19e-0101-4275-824a-c4f9727c7d32,TCGA-DD-A4NP,Tumor,Primary Tumor,Primary,TCGA-LIHC,ebf5bac8-5ed4-474c-bda0-efc21b4b805d.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A4NQ-01A,a49bcc77-cf6b-4c31-9f4f-78a76b6bbafa,TCGA-DD-A4NQ,Tumor,Primary Tumor,Primary,TCGA-LIHC,0a20e4cc-47b1-4b2b-8dfa-43a8fa62d27d.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A4NR-01A,0cef5519-9701-49db-93d2-51e59dc63565,TCGA-DD-A4NR,Tumor,Primary Tumor,Primary,TCGA-LIHC,5e4721e4-6883-4f2a-8a70-b87a2cee68f1.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A4NS-01A,1a895ce8-7908-4fe3-ad5a-28d4a6041358,TCGA-DD-A4NS,Tumor,Primary Tumor,Primary,TCGA-LIHC,2f237fc7-63d6-4043-8959-a4c8cf146834.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A4NV-01A,d40f1ef2-8f8c-4bd0-b5d0-1a079c6946aa,TCGA-DD-A4NV,Tumor,Primary Tumor,Primary,TCGA-LIHC,65d83cea-ef9b-4148-88c5-c09192289e83.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A73A-01A,4cb91444-2f4c-4ce6-a5d6-84526ff58afd,TCGA-DD-A73A,Tumor,Primary Tumor,Primary,TCGA-LIHC,f45c520f-016e-4c29-8d84-2e985763ed0a.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A73B-01A,7030d102-97aa-4345-9cb6-ec236d915b01,TCGA-DD-A73B,Tumor,Primary Tumor,Primary,TCGA-LIHC,ac057bd8-d7b3-49db-822d-6f07768f842c.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A73C-01A,9ea36091-e189-4b26-9db5-05211659b140,TCGA-DD-A73C,Tumor,Primary Tumor,Primary,TCGA-LIHC,f478905e-87fd-42af-b39b-f2358f83dfed.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A73D-01A,eb61bf6e-9444-472b-ba16-ab4c1c72520e,TCGA-DD-A73D,Tumor,Primary Tumor,Primary,TCGA-LIHC,65bd5f28-4822-454d-9f6d-ce9b06ca9261.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A73E-01A,6aa12edb-3a79-4980-b14b-836c215483a3,TCGA-DD-A73E,Tumor,Primary Tumor,Primary,TCGA-LIHC,07ba0ffd-9a39-498d-b289-a8896d1c3caf.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A73F-01A,24c5e3cc-ed91-4bac-a098-f61456f7c5d0,TCGA-DD-A73F,Tumor,Primary Tumor,Primary,TCGA-LIHC,0dac8c60-2d8f-46cd-b970-d0cd524374c7.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-A73G-01A,90e2e7d1-636f-4454-beeb-58391ce64951,TCGA-DD-A73G,Tumor,Primary Tumor,Primary,TCGA-LIHC,a21df824-3f31-4f4d-aed6-34cf0fe6c01f.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AA3A-01A,fcf7a2a9-ab7f-4813-aaaa-1fc610c729a2,TCGA-DD-AA3A,Tumor,Primary Tumor,Primary,TCGA-LIHC,4fa48eca-88fa-4f13-9bb8-5993c47cc5f3.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAC8-01A,84b1dbfe-3283-42c0-9a28-df013ed84779,TCGA-DD-AAC8,Tumor,Primary Tumor,Primary,TCGA-LIHC,ee667570-d3c6-4906-980d-5ff7a66f521d.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAC9-01A,63ade9a4-09db-4e7c-9133-39b1901d8856,TCGA-DD-AAC9,Tumor,Primary Tumor,Primary,TCGA-LIHC,ce954e33-e1ab-4def-b5ef-82c58a6f0806.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACA-01A,83cc5767-9f62-4eaf-b84e-0a5970e2c39e,TCGA-DD-AACA,Tumor,Primary Tumor,Primary,TCGA-LIHC,70b45a47-52ad-40a1-97db-ef145353922e.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACB-01A,e2cbda5d-97e3-446d-b8e4-50813234c5d5,TCGA-DD-AACB,Tumor,Primary Tumor,Primary,TCGA-LIHC,1d974cac-fb5e-4737-a6b0-d22d398fea59.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACC-01A,e574250e-3bb3-408b-a3b6-474a9c666bf5,TCGA-DD-AACC,Tumor,Primary Tumor,Primary,TCGA-LIHC,7ec25db7-c66d-4511-bc2e-3f2d32a0eac1.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACD-01A,fb44eeaf-a203-429c-b770-bff58392b140,TCGA-DD-AACD,Tumor,Primary Tumor,Primary,TCGA-LIHC,6f2c61ef-9038-4d9c-a11e-0ad8e1938026.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACE-01A,e6adf44e-ff6b-47e3-9653-7be5757e852a,TCGA-DD-AACE,Tumor,Primary Tumor,Primary,TCGA-LIHC,2047f29d-1d05-4124-b53c-0eba9c81871c.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACF-01A,e3c5b7bc-e833-457b-92d4-043a24f49859,TCGA-DD-AACF,Tumor,Primary Tumor,Primary,TCGA-LIHC,26fcd293-38d7-47b5-9a9f-2f366cc3389d.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACG-01A,aadef622-2f32-402e-9f5f-071fe18887b4,TCGA-DD-AACG,Tumor,Primary Tumor,Primary,TCGA-LIHC,d6cf34c3-a7ad-4dfd-92ee-b2b689515471.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACH-01A,a3089132-f216-4341-ae9c-fb0c0b42ecca,TCGA-DD-AACH,Tumor,Primary Tumor,Primary,TCGA-LIHC,a1e4d6cb-c195-4ed4-8f75-083c257333a4.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACI-01A,e8c767cd-bcb2-4b9f-a195-8ed4b97dea91,TCGA-DD-AACI,Tumor,Primary Tumor,Primary,TCGA-LIHC,3664c072-bf3f-42ac-9927-89b15993c72e.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACJ-01A,84aace37-2680-4ebf-9865-58ed9002e820,TCGA-DD-AACJ,Tumor,Primary Tumor,Primary,TCGA-LIHC,9953447a-4d33-4a53-8395-4ac0fa67ed42.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACK-01A,0e451461-1cb0-4ea4-ac78-8b172959acbe,TCGA-DD-AACK,Tumor,Primary Tumor,Primary,TCGA-LIHC,cdb21b35-6884-40a4-b66d-2275eb5ca0a1.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACL-01A,dc27a793-54df-41d6-80a1-ba7232a42e50,TCGA-DD-AACL,Tumor,Primary Tumor,Primary,TCGA-LIHC,82ea8208-db0e-4f7c-ac6b-1b7b48e6d671.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACN-01A,d6c0bc6b-1f6b-4f29-aae8-e3140abf8661,TCGA-DD-AACN,Tumor,Primary Tumor,Primary,TCGA-LIHC,39546419-4ab2-4d0f-b620-eb18c4583853.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACO-01A,99579385-2dc6-40d2-af85-9fe3631e4457,TCGA-DD-AACO,Tumor,Primary Tumor,Primary,TCGA-LIHC,2f38ebf5-ca42-498c-ae0a-b775db4d7bfa.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACP-01A,e529805e-6025-4a11-b79c-789faf23309d,TCGA-DD-AACP,Tumor,Primary Tumor,Primary,TCGA-LIHC,76ac10f3-0299-4c25-b241-812f90a7d1d6.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACQ-01A,8e1fba85-d2bc-416d-856c-3bcce62d0d65,TCGA-DD-AACQ,Tumor,Primary Tumor,Primary,TCGA-LIHC,56ceda32-7646-463b-a014-aba6a9987b3c.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACS-01A,68da3333-aeee-41ca-81b6-9d039e664a93,TCGA-DD-AACS,Tumor,Primary Tumor,Primary,TCGA-LIHC,45209842-481c-487b-bc91-f3f2d0b8564d.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACT-01A,c16416c5-91ca-4e91-a553-609755aad3c5,TCGA-DD-AACT,Tumor,Primary Tumor,Primary,TCGA-LIHC,18b4b563-e011-4e0d-a8e3-838af24f6c3a.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACU-01A,654466c0-02e4-45c1-8b7e-bcd081607c10,TCGA-DD-AACU,Tumor,Primary Tumor,Primary,TCGA-LIHC,8acd0b6c-f45d-432c-a78c-51690c3bc5fd.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACV-01A,1e2516e8-48d8-4c1f-9aa7-df7b5f608bef,TCGA-DD-AACV,Tumor,Primary Tumor,Primary,TCGA-LIHC,7e0e5876-f19b-4c72-b06f-bb6d6bc01d67.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACW-01A,58e10790-2557-45b8-a18e-82e6f4ddcf02,TCGA-DD-AACW,Tumor,Primary Tumor,Primary,TCGA-LIHC,303bf92c-c5f7-47b7-8f75-753d7322bee7.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACX-01A,eb8c3e77-ba40-40d3-94b1-a6f2c76bcf88,TCGA-DD-AACX,Tumor,Primary Tumor,Primary,TCGA-LIHC,a1eaf5b1-6c7f-47bf-8a51-6bc24129aa7f.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACY-01A,9feab7ab-74fc-4956-a26c-4bdd15d9d76b,TCGA-DD-AACY,Tumor,Primary Tumor,Primary,TCGA-LIHC,47fc6e7f-fc2b-496d-b8d9-49a4b4cbc92d.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AACZ-01A,03997884-d3c0-4f66-ae15-b5271f46a63f,TCGA-DD-AACZ,Tumor,Primary Tumor,Primary,TCGA-LIHC,5b12ed1e-a3a3-48fc-bcb1-6527bc7e7af8.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAD0-01A,eb49ac61-94cf-4990-9d4c-0968843a9e0c,TCGA-DD-AAD0,Tumor,Primary Tumor,Primary,TCGA-LIHC,f9963ac2-b1c9-4a24-b077-be1a4007d20d.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAD1-01A,146840f0-71a0-4513-ab4a-172275c2d386,TCGA-DD-AAD1,Tumor,Primary Tumor,Primary,TCGA-LIHC,c6947e47-2ada-4c8d-830c-e6dbcb66769a.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAD2-01A,6b8b3f6b-1dfa-4c38-964f-f136095caeb4,TCGA-DD-AAD2,Tumor,Primary Tumor,Primary,TCGA-LIHC,9a31bdaa-e08a-46ca-be6c-9856f876474a.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAD3-01A,c3a56579-89c8-4e5e-a1b0-804dbfb40390,TCGA-DD-AAD3,Tumor,Primary Tumor,Primary,TCGA-LIHC,bc96f6df-c22f-459a-a712-be9df674b3f0.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAD5-01A,00204a76-6f58-4fe7-bd1f-ae4e22915415,TCGA-DD-AAD5,Tumor,Primary Tumor,Primary,TCGA-LIHC,302fb528-5824-4e20-8cc3-1001aac9bd4b.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAD6-01A,a1edfbdc-7ab4-4d6d-90d6-179508ab7b9d,TCGA-DD-AAD6,Tumor,Primary Tumor,Primary,TCGA-LIHC,d93bb6e9-c535-4deb-9207-18a728f80c31.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAD8-01A,c2dfd752-bc96-4252-9693-23c02a810aa5,TCGA-DD-AAD8,Tumor,Primary Tumor,Primary,TCGA-LIHC,192fbc82-959c-469b-ba83-0dd7af188265.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AADA-01A,2812f45b-025e-4980-8aa1-d7aff4f93093,TCGA-DD-AADA,Tumor,Primary Tumor,Primary,TCGA-LIHC,b89c4049-eeac-4f22-a9b6-18ffd9f07132.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AADB-01A,3d2cfabe-b13b-43fc-9439-6b06de9d762d,TCGA-DD-AADB,Tumor,Primary Tumor,Primary,TCGA-LIHC,e175cacf-8bb9-42a4-a68d-fef90e587e5b.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AADC-01A,e15e215d-7815-4e32-b5a6-38a417b1959f,TCGA-DD-AADC,Tumor,Primary Tumor,Primary,TCGA-LIHC,ae8b889d-e87c-4d8b-bb7f-edeb24ea9da1.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AADD-01A,fc1ef653-97b8-425c-98f6-5317cd54f728,TCGA-DD-AADD,Tumor,Primary Tumor,Primary,TCGA-LIHC,5929f6bf-85f8-4b79-ae2d-c5cddf2a9ed1.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AADF-01A,b598b4a1-34f5-4e44-80c9-13dac0d30d8c,TCGA-DD-AADF,Tumor,Primary Tumor,Primary,TCGA-LIHC,1068220f-b2b3-4bd9-b120-83ca7697d2f5.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AADG-01A,c6accdb6-7323-4be7-9ce8-f788b67f2a6e,TCGA-DD-AADG,Tumor,Primary Tumor,Primary,TCGA-LIHC,3bfa7140-ed14-41bf-aa12-5eac3535885a.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AADI-01A,5c17c3a6-9adc-4dc8-8e04-0bac3669219b,TCGA-DD-AADI,Tumor,Primary Tumor,Primary,TCGA-LIHC,5935a99a-35f6-49b8-a1b1-401f17c8ec0e.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AADJ-01A,9998e684-5fd2-404a-8577-57ccb8d46133,TCGA-DD-AADJ,Tumor,Primary Tumor,Primary,TCGA-LIHC,57911cee-e2cf-4039-995b-aeb54883b4ba.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AADK-01A,594f7d95-5ced-4a62-bdbb-e42a3b80c5a7,TCGA-DD-AADK,Tumor,Primary Tumor,Primary,TCGA-LIHC,15c9c88d-1489-48e5-857a-6feb6dbe29b4.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AADL-01A,8b297edc-125d-4290-b4d6-19c5b2bd4c86,TCGA-DD-AADL,Tumor,Primary Tumor,Primary,TCGA-LIHC,ad4c870b-968c-4cd7-8270-cf2cd0ef94ee.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AADM-01A,d44fa4a6-c5fc-4c5a-83ee-db0e42a812f8,TCGA-DD-AADM,Tumor,Primary Tumor,Primary,TCGA-LIHC,8eb51333-09bf-4477-9725-355d65c72753.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AADN-01A,76f99d91-2187-4dbc-83a6-cb940e17adba,TCGA-DD-AADN,Tumor,Primary Tumor,Primary,TCGA-LIHC,65518e95-98ee-4567-a9cb-e2ef4e9ad5ff.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AADO-01A,b0e2dd05-212e-488e-8386-453647c57887,TCGA-DD-AADO,Tumor,Primary Tumor,Primary,TCGA-LIHC,81d97d2b-4f2a-4f50-b37b-7ca91a1d19e9.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AADP-01A,a21d2b72-1b9b-4c35-b74d-eb5b91bff23f,TCGA-DD-AADP,Tumor,Primary Tumor,Primary,TCGA-LIHC,24b00ac1-73b7-4ac7-9628-4cd367af7c45.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AADQ-01A,75a0e80b-ffed-4399-a47b-8f5014b99e43,TCGA-DD-AADQ,Tumor,Primary Tumor,Primary,TCGA-LIHC,98062285-0c29-46a3-b955-2df64d7692ee.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AADR-01A,738e8ecd-de78-4983-97ab-7a409f31d5ce,TCGA-DD-AADR,Tumor,Primary Tumor,Primary,TCGA-LIHC,39ea2fe7-54bb-4147-85fa-b022a034d063.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AADS-01A,8db08e23-133c-494f-97f1-d415d6642271,TCGA-DD-AADS,Tumor,Primary Tumor,Primary,TCGA-LIHC,7a61270d-2a79-4a57-bdb5-217d5db07b79.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AADU-01A,89b5d95b-3453-4460-94af-eface8548c31,TCGA-DD-AADU,Tumor,Primary Tumor,Primary,TCGA-LIHC,7f812fa1-53dc-4ebe-97b3-9b633af148ce.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AADV-01A,cd849de5-e722-4535-a329-a2cc65ac169e,TCGA-DD-AADV,Tumor,Primary Tumor,Primary,TCGA-LIHC,26ef8329-84d1-4510-93a7-82c42895e1a3.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AADW-01A,fc2f9a66-298e-4b46-9e70-9d401f840e43,TCGA-DD-AADW,Tumor,Primary Tumor,Primary,TCGA-LIHC,4378234d-05a9-4d4f-97fc-916698728a4f.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AADY-01A,a075ada3-5221-43c7-a608-c368ee0a245a,TCGA-DD-AADY,Tumor,Primary Tumor,Primary,TCGA-LIHC,cc32ff5b-0c18-41b9-b1ca-e8d1eb3d7b84.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAE0-01A,09524ceb-eeb3-4a4b-8fe1-1a3dfa449037,TCGA-DD-AAE0,Tumor,Primary Tumor,Primary,TCGA-LIHC,a7fe211e-d6ca-48d3-80dc-06848c934aa7.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAE1-01A,151c99b8-6c2f-4774-8080-a3eab624be5e,TCGA-DD-AAE1,Tumor,Primary Tumor,Primary,TCGA-LIHC,d530e057-63d5-455a-9b98-620f6dcd9f89.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAE2-01A,f4470598-4855-4a66-bff5-ac7eacc7b249,TCGA-DD-AAE2,Tumor,Primary Tumor,Primary,TCGA-LIHC,a536b1b0-d13a-4e5d-897f-9b8ba38597f9.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAE3-01A,4c26b95b-d5e7-4e91-9557-a75b11d5c9bc,TCGA-DD-AAE3,Tumor,Primary Tumor,Primary,TCGA-LIHC,18b024b6-f991-4414-8d9b-4cc112d8ec38.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAE4-01A,42a60faf-25b8-4f39-bcb1-27d51456e4d7,TCGA-DD-AAE4,Tumor,Primary Tumor,Primary,TCGA-LIHC,7b901b84-6702-408f-95bc-d5b79ba58ffa.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAE6-01A,b2750df2-e5fe-42a5-aa34-be3276205c03,TCGA-DD-AAE6,Tumor,Primary Tumor,Primary,TCGA-LIHC,2bcba179-bae2-493f-8a0e-120461c327f7.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAE7-01A,dbe53db9-889e-4f36-adae-c4739b78dd70,TCGA-DD-AAE7,Tumor,Primary Tumor,Primary,TCGA-LIHC,286b5e5d-29d0-4033-9f0b-2ae0cb3fa397.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAE9-01A,15d9783f-ad1e-4568-bb4f-16254ab59401,TCGA-DD-AAE9,Tumor,Primary Tumor,Primary,TCGA-LIHC,4c34db2e-e3cd-46d9-85ac-4277a1f036f1.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAEA-01A,fe6fcbc7-2e35-4103-9018-83825ad1dcad,TCGA-DD-AAEA,Tumor,Primary Tumor,Primary,TCGA-LIHC,c4a1b18b-b240-4a20-b1b0-f0b77542373a.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAEB-01A,d1c26d7d-ac6f-424c-94b9-ce8b41d29355,TCGA-DD-AAEB,Tumor,Primary Tumor,Primary,TCGA-LIHC,2de83d09-9782-42f1-9434-8df1f3bab7fd.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAED-01A,d55affdb-8f12-4fc7-994c-113a4ef4f46d,TCGA-DD-AAED,Tumor,Primary Tumor,Primary,TCGA-LIHC,7b2357a2-e9de-43ae-9f42-11828bd27e7c.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAEE-01A,8d253b69-9acb-4a17-b76d-b1b43499eba9,TCGA-DD-AAEE,Tumor,Primary Tumor,Primary,TCGA-LIHC,8b7f2fa6-a31b-41f7-9493-872d2a80814d.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAEG-01A,48b71164-2b64-4eb6-85c4-093f159de818,TCGA-DD-AAEG,Tumor,Primary Tumor,Primary,TCGA-LIHC,b65237ee-e280-4414-90ca-6c9815801ba6.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAEH-01A,00bdc65b-87fa-46d6-9c11-1356fac2db24,TCGA-DD-AAEH,Tumor,Primary Tumor,Primary,TCGA-LIHC,6c8ba378-3d51-46a8-ac10-41652da21459.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAEI-01A,a8e4c701-bf71-4792-88a7-6d8d931b0ba5,TCGA-DD-AAEI,Tumor,Primary Tumor,Primary,TCGA-LIHC,22b6bbde-8db5-4df5-bf7c-1a626851e3f5.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAEK-01A,9c13fe73-c356-4c8b-83d7-7d5b5668c576,TCGA-DD-AAEK,Tumor,Primary Tumor,Primary,TCGA-LIHC,311d89d5-9845-4d61-a801-8e0990be5d24.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAVP-01A,3069befb-73d6-4c51-be8a-c3ddac541530,TCGA-DD-AAVP,Tumor,Primary Tumor,Primary,TCGA-LIHC,7c3fd6c4-1ae1-45a4-9819-b0b702baa6ac.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAVQ-01A,ee882a39-3088-428e-8b12-91fb902ab46a,TCGA-DD-AAVQ,Tumor,Primary Tumor,Primary,TCGA-LIHC,a5b5b737-3f68-49a0-ac50-2884dbb90496.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAVR-01A,c9f4f4ba-9502-4e81-9ed3-bcaa703df18e,TCGA-DD-AAVR,Tumor,Primary Tumor,Primary,TCGA-LIHC,63bfa71f-f558-452b-8ff5-68d5bd25cf56.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAVS-01A,2161e4cb-a1c7-4adf-80ba-40a2153d3d42,TCGA-DD-AAVS,Tumor,Primary Tumor,Primary,TCGA-LIHC,c6029ffa-9ef0-4ce1-84a9-aa42843826ff.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAVU-01A,50ffee3c-c4b0-4238-bd10-05225226be6a,TCGA-DD-AAVU,Tumor,Primary Tumor,Primary,TCGA-LIHC,71966926-f43b-4420-ae73-ec20cfd4e832.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAVV-01A,366a2e5a-4f1d-4014-b3e5-047c428a215e,TCGA-DD-AAVV,Tumor,Primary Tumor,Primary,TCGA-LIHC,36508e6f-d4aa-48e6-8b63-8d11d20c4098.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAVW-01A,277cecc7-70a7-4ea3-92d9-3aa74df66b5c,TCGA-DD-AAVW,Tumor,Primary Tumor,Primary,TCGA-LIHC,a54e96d5-9666-4e09-8687-7d3a26a81b33.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAVX-01A,edcbbd7a-33d4-4394-8399-651db540602d,TCGA-DD-AAVX,Tumor,Primary Tumor,Primary,TCGA-LIHC,fc8cc23a-6b02-4a99-a6d7-5c01b85fa0d1.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAVY-01A,922c45c7-8105-4b71-a684-602982c74efd,TCGA-DD-AAVY,Tumor,Primary Tumor,Primary,TCGA-LIHC,8d6ae71d-5622-4553-b992-c0c59c703e59.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAVZ-01A,7938f121-4c5c-42ce-8b7e-48bd0c15634b,TCGA-DD-AAVZ,Tumor,Primary Tumor,Primary,TCGA-LIHC,af719f6c-4e97-4679-ab86-84aa810c7052.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAW0-01A,8bddf884-1cd1-4d87-bc7f-02c5e036e555,TCGA-DD-AAW0,Tumor,Primary Tumor,Primary,TCGA-LIHC,3f6cc934-a895-4155-9257-7b09d36ac917.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAW1-01A,70c2c50a-e343-41eb-aaae-1300a8151218,TCGA-DD-AAW1,Tumor,Primary Tumor,Primary,TCGA-LIHC,93bbdfef-3d7a-490f-9747-2fd5b01391b8.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAW2-01A,bd21a8b1-238e-43cb-a627-51a8d0f7e599,TCGA-DD-AAW2,Tumor,Primary Tumor,Primary,TCGA-LIHC,9f62f80d-72e6-41b6-aa23-91dc21b6fc5c.rna_seq.genomic.gdc_realn.bam
+TCGA-DD-AAW3-01A,d365a233-bcb1-4e2c-9be6-73d883c15f81,TCGA-DD-AAW3,Tumor,Primary Tumor,Primary,TCGA-LIHC,6cae08b5-33e9-4a0c-b399-3bc723f6e10f.rna_seq.genomic.gdc_realn.bam
+TCGA-ED-A459-01A,c36b6622-1b84-462e-ac99-c4c1287e9df9,TCGA-ED-A459,Tumor,Primary Tumor,Primary,TCGA-LIHC,6cfb8fb8-3064-467f-ad32-4c7ffb30afaa.rna_seq.genomic.gdc_realn.bam
+TCGA-ED-A4XI-01A,9f3f1b1c-cdfd-4b96-acef-d807ec254ca4,TCGA-ED-A4XI,Tumor,Primary Tumor,Primary,TCGA-LIHC,9a0d0189-b66e-461b-b0b6-8563cffb8813.rna_seq.genomic.gdc_realn.bam
+TCGA-ED-A5KG-01A,e7afacae-cc4b-49a6-8339-bfaeaaface51,TCGA-ED-A5KG,Tumor,Primary Tumor,Primary,TCGA-LIHC,8be7d2b4-3bf5-49a5-97fb-97bdb5c29295.rna_seq.genomic.gdc_realn.bam
+TCGA-ED-A627-01A,1bc6ad95-b498-43d2-a6f7-f716a5e19ac2,TCGA-ED-A627,Tumor,Primary Tumor,Primary,TCGA-LIHC,6d45b3c6-aff6-4849-be65-6bdd64dc2002.rna_seq.genomic.gdc_realn.bam
+TCGA-ED-A66X-01A,e9ef849f-0c21-4b1d-baea-c812d0480320,TCGA-ED-A66X,Tumor,Primary Tumor,Primary,TCGA-LIHC,aba8d491-1d65-421a-8d13-b3d0a16dff43.rna_seq.genomic.gdc_realn.bam
+TCGA-ED-A66Y-01A,f00b9d12-8305-4bf4-a54b-e9135c1f1428,TCGA-ED-A66Y,Tumor,Primary Tumor,Primary,TCGA-LIHC,be8ac5cf-54d6-4c73-8ab9-fc3b7f7e93e6.rna_seq.genomic.gdc_realn.bam
+TCGA-ED-A7PX-01A,fffe5261-f281-45b1-876f-7b763dec0830,TCGA-ED-A7PX,Tumor,Primary Tumor,Primary,TCGA-LIHC,4e58c985-012a-4846-97f6-80dac0cae0b4.rna_seq.genomic.gdc_realn.bam
+TCGA-ED-A7PY-01A,c5786169-2ed6-47de-8991-172d0329d13f,TCGA-ED-A7PY,Tumor,Primary Tumor,Primary,TCGA-LIHC,8463e3a8-18a2-42ea-8edc-3c0b78de1b40.rna_seq.genomic.gdc_realn.bam
+TCGA-ED-A7PZ-01A,bef687a2-3d61-44c6-9a5a-329c6ed9cf34,TCGA-ED-A7PZ,Tumor,Primary Tumor,Primary,TCGA-LIHC,b952371d-4fcd-4df6-8aca-af126cb09e3e.rna_seq.genomic.gdc_realn.bam
+TCGA-ED-A7XO-01A,d5b154b2-4e3f-40e8-a266-1f893af0f5e0,TCGA-ED-A7XO,Tumor,Primary Tumor,Primary,TCGA-LIHC,87b041d0-77c6-44ac-9e45-fe16e71455a5.rna_seq.genomic.gdc_realn.bam
+TCGA-ED-A7XP-01A,8f27a2f6-e132-4a8e-b7d2-de4f34261c95,TCGA-ED-A7XP,Tumor,Primary Tumor,Primary,TCGA-LIHC,77005fc3-4d4e-419e-93b1-9dfe6999f587.rna_seq.genomic.gdc_realn.bam
+TCGA-ED-A82E-01A,6d6fa7ac-6785-47dc-bce4-55b3aaf9e83f,TCGA-ED-A82E,Tumor,Primary Tumor,Primary,TCGA-LIHC,10616d35-3bf7-4468-8b42-4eb662d5981f.rna_seq.genomic.gdc_realn.bam
+TCGA-ED-A8O5-01A,488cd67c-036c-482d-a524-f7434ca5a47a,TCGA-ED-A8O5,Tumor,Primary Tumor,Primary,TCGA-LIHC,103f757b-a61e-4346-87a4-b4b290dd99f3.rna_seq.genomic.gdc_realn.bam
+TCGA-ED-A8O6-01A,b0347cfe-8eeb-4d4e-bafa-11cd134ef847,TCGA-ED-A8O6,Tumor,Primary Tumor,Primary,TCGA-LIHC,2a3e3e31-ec7e-42e3-b219-2bc84f3888ac.rna_seq.genomic.gdc_realn.bam
+TCGA-ED-A97K-01A,2af5fbce-1a6f-4ca0-b121-5b2e800798c7,TCGA-ED-A97K,Tumor,Primary Tumor,Primary,TCGA-LIHC,cdcb92f3-ff27-4b55-bef0-8cc1d3cea1dd.rna_seq.genomic.gdc_realn.bam
+TCGA-EP-A2KA-01A,f1f80687-cede-4f69-8f82-266998c84af7,TCGA-EP-A2KA,Tumor,Primary Tumor,Primary,TCGA-LIHC,78767f1f-fa6f-4d1a-beb7-a2c11381958e.rna_seq.genomic.gdc_realn.bam
+TCGA-EP-A2KB-01A,8bb02084-a683-406e-8036-30ff7d272e1c,TCGA-EP-A2KB,Tumor,Primary Tumor,Primary,TCGA-LIHC,c282bf87-bf6a-448b-96a0-817ac7f7fee8.rna_seq.genomic.gdc_realn.bam
+TCGA-EP-A2KC-01A,fc5b5511-7a87-4817-a279-ab70a09b19e6,TCGA-EP-A2KC,Tumor,Primary Tumor,Primary,TCGA-LIHC,b2081f1a-e729-4120-8bbd-19a6cff35bd1.rna_seq.genomic.gdc_realn.bam
+TCGA-EP-A3JL-01A,9e8666c2-436a-45ab-af24-e6e8947ea298,TCGA-EP-A3JL,Tumor,Primary Tumor,Primary,TCGA-LIHC,6916d291-a782-4469-8a66-e9454cc3752f.rna_seq.genomic.gdc_realn.bam
+TCGA-ES-A2HS-01A,eadee6bd-125f-4e3f-95a8-e23af90aa9c5,TCGA-ES-A2HS,Tumor,Primary Tumor,Primary,TCGA-LIHC,59cd3041-57d2-4d59-9614-34a6341aa152.rna_seq.genomic.gdc_realn.bam
+TCGA-FV-A2QQ-01A,cbebef3a-3aba-44f2-9abf-7e5cee8c526b,TCGA-FV-A2QQ,Tumor,Primary Tumor,Primary,TCGA-LIHC,ec3aac56-028a-4869-8d68-019a58774640.rna_seq.genomic.gdc_realn.bam
+TCGA-FV-A3R3-01A,36fd1e8a-6638-4add-b778-5befcdc50cdb,TCGA-FV-A3R3,Tumor,Primary Tumor,Primary,TCGA-LIHC,9aa968ad-63fa-4db4-97b8-042cdbb6b459.rna_seq.genomic.gdc_realn.bam
+TCGA-FV-A495-01A,ae69b2ee-d963-4de3-b665-f2ce01154a5e,TCGA-FV-A495,Tumor,Primary Tumor,Primary,TCGA-LIHC,d3a93bb2-1aeb-4deb-8224-d9a1dbda390b.rna_seq.genomic.gdc_realn.bam
+TCGA-FV-A496-01A,14110f69-a618-4df5-b0fc-c12a9dd914af,TCGA-FV-A496,Tumor,Primary Tumor,Primary,TCGA-LIHC,cd97f9a6-61e9-4c29-86f4-929481216b94.rna_seq.genomic.gdc_realn.bam
+TCGA-FV-A4ZP-01A,88882cce-faed-4c4a-b7e9-2e56398059d6,TCGA-FV-A4ZP,Tumor,Primary Tumor,Primary,TCGA-LIHC,becb1650-22ac-45d9-982f-57c391343933.rna_seq.genomic.gdc_realn.bam
+TCGA-FV-A4ZQ-01A,6e03dd5f-541d-4ba5-834b-ccdcb2a10017,TCGA-FV-A4ZQ,Tumor,Primary Tumor,Primary,TCGA-LIHC,6452215d-e0ae-482f-8f32-963e7017bec0.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A25S-01A,4f7c63bc-acb1-4243-bdad-f8f83b855add,TCGA-G3-A25S,Tumor,Primary Tumor,Primary,TCGA-LIHC,26e93a7e-353d-4774-aa61-34b0737ba6c6.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A25T-01A,8066e46d-2005-447f-a632-74017c665d56,TCGA-G3-A25T,Tumor,Primary Tumor,Primary,TCGA-LIHC,fe42792f-4116-4e5f-8db3-678b74cfd263.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A25U-01A,a88698cb-d3c0-4491-b86d-b209ba31ed0c,TCGA-G3-A25U,Tumor,Primary Tumor,Primary,TCGA-LIHC,cb7b4121-6ee7-4e8f-8efc-6651bd5bdf3f.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A25V-01A,83fdcb14-4a3e-48f0-8bf8-3fa90543f998,TCGA-G3-A25V,Tumor,Primary Tumor,Primary,TCGA-LIHC,1f6baf69-b0e9-44e7-bb0a-0818adda7b09.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A25X-01A,40c7507b-4ae5-46fd-b485-6f4ce203efe8,TCGA-G3-A25X,Tumor,Primary Tumor,Primary,TCGA-LIHC,32b682ec-8156-44ca-bff0-26155c7fdc12.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A25Y-01A,1775c8a9-6864-492d-838e-1cf9309fb261,TCGA-G3-A25Y,Tumor,Primary Tumor,Primary,TCGA-LIHC,18d41dea-6ae2-4030-ac51-66ff54189bab.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A25Z-01A,cba54a0d-65d6-4ea2-9788-cc519a8d2d65,TCGA-G3-A25Z,Tumor,Primary Tumor,Primary,TCGA-LIHC,c7c1bdcf-667e-497c-8167-6f84fa5a99e3.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A3CG-01A,1de735b4-a156-4f2d-a090-b9b5f463c7a0,TCGA-G3-A3CG,Tumor,Primary Tumor,Primary,TCGA-LIHC,ef3f524a-1496-408d-a9f0-cdf029be4830.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A3CI-01A,3bb49880-9bc9-49e9-bd31-01446a0b1281,TCGA-G3-A3CI,Tumor,Primary Tumor,Primary,TCGA-LIHC,03ca605c-a693-44da-86b9-4f48c2649839.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A3CJ-01A,5b3b34b8-2243-4097-8738-b94fc0b2e59d,TCGA-G3-A3CJ,Tumor,Primary Tumor,Primary,TCGA-LIHC,81811a46-64f2-48ab-bfd4-1a4f9e4d5554.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A3CK-01A,46b6a75e-39b5-4020-acec-4e37ecded1e2,TCGA-G3-A3CK,Tumor,Primary Tumor,Primary,TCGA-LIHC,c158ef97-e253-41f8-a9e1-dd55496ae910.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A5SI-01A,03538350-ce07-45d5-b879-f5ff565ba7c8,TCGA-G3-A5SI,Tumor,Primary Tumor,Primary,TCGA-LIHC,9f5f7f86-89e6-4a9c-a5a5-32c46c5e2baf.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A5SJ-01A,2d59d00c-4062-48f3-9500-9fd0cff6c3fa,TCGA-G3-A5SJ,Tumor,Primary Tumor,Primary,TCGA-LIHC,dfc8986d-1ec3-4c77-926e-d71cc217ffcd.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A5SK-01A,93361052-edaf-4f62-9ae9-7e5ac72520cd,TCGA-G3-A5SK,Tumor,Primary Tumor,Primary,TCGA-LIHC,7c4769e7-7e2b-48b7-a68d-775d2b76b105.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A5SL-01A,064f04d7-cae1-4b7e-9d45-04dbea1764e8,TCGA-G3-A5SL,Tumor,Primary Tumor,Primary,TCGA-LIHC,6e2e99b7-d686-4a88-867c-edbcc22acaed.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A5SM-01A,97f87c14-48e7-490e-a5e3-b0f3c383048b,TCGA-G3-A5SM,Tumor,Primary Tumor,Primary,TCGA-LIHC,57d2ec02-2e8f-4ea4-8571-1c5f6078d554.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A6UC-01A,7e2d3e27-2df8-4f42-83b5-8ad6225d6633,TCGA-G3-A6UC,Tumor,Primary Tumor,Primary,TCGA-LIHC,8b6bb4a3-2bd0-4221-a4d7-9641c24b0681.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A7M5-01A,cd44bc0e-f5cf-4646-8b47-ebe76b9ffeac,TCGA-G3-A7M5,Tumor,Primary Tumor,Primary,TCGA-LIHC,e743401a-0738-4fd6-92d9-019537582d76.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A7M6-01A,a41d5fc4-12b0-4cc5-ad1a-38bc7da33186,TCGA-G3-A7M6,Tumor,Primary Tumor,Primary,TCGA-LIHC,19dc74d9-a307-4991-8723-a570de15858d.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A7M7-01A,28ee93cf-da8c-4b56-b027-ea07d276326e,TCGA-G3-A7M7,Tumor,Primary Tumor,Primary,TCGA-LIHC,a9ec76be-2ef4-4b95-9ab8-0b47fd793b0e.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A7M8-01A,100c8912-e6fd-47f9-9226-9a5da5939909,TCGA-G3-A7M8,Tumor,Primary Tumor,Primary,TCGA-LIHC,cdd3341f-b11c-4b79-b1bc-fd0bc958983a.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-A7M9-01A,f6c15e4a-3dbc-4c4d-9b8f-c77c87787b28,TCGA-G3-A7M9,Tumor,Primary Tumor,Primary,TCGA-LIHC,56c5a8d3-e600-4564-858f-72defc9fc138.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-AAUZ-01A,6d8b239a-a51c-4d64-9d64-62ff31b8347f,TCGA-G3-AAUZ,Tumor,Primary Tumor,Primary,TCGA-LIHC,2d46de42-03df-475d-9255-d9fc26cfa234.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-AAV0-01A,ccc3abd9-b1c7-4dae-8140-316d22ab6be8,TCGA-G3-AAV0,Tumor,Primary Tumor,Primary,TCGA-LIHC,d40dc69d-6e72-488a-801f-fb5b1917b6c2.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-AAV1-01A,3c285a4b-cfc6-46a4-afda-fa0460a2a7f9,TCGA-G3-AAV1,Tumor,Primary Tumor,Primary,TCGA-LIHC,b2dfe637-d3a5-4400-88db-5d60f0a167d5.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-AAV2-01A,4e4541e0-ea39-4cbd-8354-8d942f754e53,TCGA-G3-AAV2,Tumor,Primary Tumor,Primary,TCGA-LIHC,1f6d7667-b1ed-4577-9005-a6ffb9a4f547.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-AAV3-01A,8ffafbf7-4a77-42c8-ac91-690240ff3908,TCGA-G3-AAV3,Tumor,Primary Tumor,Primary,TCGA-LIHC,ba056a7d-5370-4fe9-af1e-2e3de42e205f.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-AAV4-01A,5b5cc7f8-7f7c-4442-886d-705e6ce4f7c7,TCGA-G3-AAV4,Tumor,Primary Tumor,Primary,TCGA-LIHC,fc962f33-2c10-44e8-8eff-c5375c02c151.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-AAV5-01A,12cc37c2-cc63-4e51-a7a3-d502c5228bf1,TCGA-G3-AAV5,Tumor,Primary Tumor,Primary,TCGA-LIHC,d85ea3ad-ab38-453d-b382-06cea6bc9e1b.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-AAV6-01A,1e1ff3c0-e5ce-4967-9543-330ade5aab9f,TCGA-G3-AAV6,Tumor,Primary Tumor,Primary,TCGA-LIHC,e542fb86-0a49-4605-9c90-db135ab74bec.rna_seq.genomic.gdc_realn.bam
+TCGA-G3-AAV7-01A,62237124-0b73-4aa0-9a02-ea093ab536f4,TCGA-G3-AAV7,Tumor,Primary Tumor,Primary,TCGA-LIHC,b9dea4f2-2847-496f-a08e-5253c9ea6743.rna_seq.genomic.gdc_realn.bam
+TCGA-GJ-A3OU-01A,58648ef2-0a0b-4356-8d68-791d4e03ff01,TCGA-GJ-A3OU,Tumor,Primary Tumor,Primary,TCGA-LIHC,55bda25f-fb6d-461e-a4c7-4e834eafeca4.rna_seq.genomic.gdc_realn.bam
+TCGA-GJ-A6C0-01A,4ac8f07d-4377-4074-b6f1-6bb48a4694b9,TCGA-GJ-A6C0,Tumor,Primary Tumor,Primary,TCGA-LIHC,8eb5e0dc-91e9-49bb-bd4d-432774f656fa.rna_seq.genomic.gdc_realn.bam
+TCGA-GJ-A9DB-01A,6de1c13d-22f6-4016-959e-9f09208f20e8,TCGA-GJ-A9DB,Tumor,Primary Tumor,Primary,TCGA-LIHC,906f244d-0d66-48c1-a646-2ad71d777696.rna_seq.genomic.gdc_realn.bam
+TCGA-HP-A5MZ-01A,38fe5404-f6de-4c43-82b4-1d375d0a48b9,TCGA-HP-A5MZ,Tumor,Primary Tumor,Primary,TCGA-LIHC,11b4abc6-0ab9-4c6a-bb4f-3282111cce13.rna_seq.genomic.gdc_realn.bam
+TCGA-HP-A5N0-01A,192f7972-22f1-42a8-93a7-cb3797f76fec,TCGA-HP-A5N0,Tumor,Primary Tumor,Primary,TCGA-LIHC,10022cea-224a-420b-b85b-c5dae3fd90c4.rna_seq.genomic.gdc_realn.bam
+TCGA-K7-A5RF-01A,74ee5c81-57f3-475f-8dba-d02520d9692b,TCGA-K7-A5RF,Tumor,Primary Tumor,Primary,TCGA-LIHC,37abfb3b-d7e9-463f-853b-1d76966bf928.rna_seq.genomic.gdc_realn.bam
+TCGA-K7-A5RG-01A,d96b074c-24e7-44a1-ac5d-4e276f0d2cfb,TCGA-K7-A5RG,Tumor,Primary Tumor,Primary,TCGA-LIHC,bda1aaaa-f62f-4156-ab54-5f850720f2a3.rna_seq.genomic.gdc_realn.bam
+TCGA-K7-A6G5-01A,7e637ee5-1a0c-438b-892f-4d06abdd38be,TCGA-K7-A6G5,Tumor,Primary Tumor,Primary,TCGA-LIHC,62f40b9a-32de-4432-b15e-32c82be5ee8b.rna_seq.genomic.gdc_realn.bam
+TCGA-K7-AAU7-01A,265f458b-6bc4-4ec5-990f-0410e0ea2789,TCGA-K7-AAU7,Tumor,Primary Tumor,Primary,TCGA-LIHC,240642e8-0f62-406f-bc13-9b3e49e0c510.rna_seq.genomic.gdc_realn.bam
+TCGA-KR-A7K0-01A,f8624014-fc18-4644-a2c9-c5715a265713,TCGA-KR-A7K0,Tumor,Primary Tumor,Primary,TCGA-LIHC,6ff7be81-1c7d-4a49-b5ab-3b1c171d4f87.rna_seq.genomic.gdc_realn.bam
+TCGA-KR-A7K2-01A,64f6801b-3ae8-4f43-b877-1fc991bb6a37,TCGA-KR-A7K2,Tumor,Primary Tumor,Primary,TCGA-LIHC,8d5cc9f7-561a-465e-a170-fa9cd5cbb911.rna_seq.genomic.gdc_realn.bam
+TCGA-KR-A7K7-01A,2cbf7699-b4bd-464c-acda-599dd4fd01b6,TCGA-KR-A7K7,Tumor,Primary Tumor,Primary,TCGA-LIHC,aa678196-590c-4fdd-beab-0a1a1942c5b0.rna_seq.genomic.gdc_realn.bam
+TCGA-KR-A7K8-01A,a3acb67b-1b4d-4790-af5d-2b6b01a89bd5,TCGA-KR-A7K8,Tumor,Primary Tumor,Primary,TCGA-LIHC,fb9a54e6-a889-48cb-b758-f6b76d76aa7b.rna_seq.genomic.gdc_realn.bam
+TCGA-LG-A6GG-01A,6386f38c-5249-4922-893e-01f4c3d4bae9,TCGA-LG-A6GG,Tumor,Primary Tumor,Primary,TCGA-LIHC,4af0c3f7-7742-448d-992a-8f4b7ad226b7.rna_seq.genomic.gdc_realn.bam
+TCGA-LG-A9QC-01A,cda295b0-6a1c-4bbf-8d84-387280fc62f3,TCGA-LG-A9QC,Tumor,Primary Tumor,Primary,TCGA-LIHC,e312bd4b-0a13-4998-8f0b-cb55ab6072b9.rna_seq.genomic.gdc_realn.bam
+TCGA-LG-A9QD-01A,7f713c50-8c4f-4485-a22e-ec47d3216a25,TCGA-LG-A9QD,Tumor,Primary Tumor,Primary,TCGA-LIHC,8a6fcf82-a349-4f74-9969-65a056fe9577.rna_seq.genomic.gdc_realn.bam
+TCGA-MI-A75C-01A,3d983f28-7b4e-4476-896c-bf9f18166269,TCGA-MI-A75C,Tumor,Primary Tumor,Primary,TCGA-LIHC,8f9e712f-e4e8-44b2-96be-fa87b630428c.rna_seq.genomic.gdc_realn.bam
+TCGA-MI-A75E-01A,52c9438c-e65a-4325-bfcb-d5175c3e7b21,TCGA-MI-A75E,Tumor,Primary Tumor,Primary,TCGA-LIHC,6db82dae-7d24-472c-9558-08291f9b96bb.rna_seq.genomic.gdc_realn.bam
+TCGA-MI-A75G-01A,68515511-0b0d-4a06-9d4c-c12b9769f3c3,TCGA-MI-A75G,Tumor,Primary Tumor,Primary,TCGA-LIHC,c31d4620-b0a9-472b-bc29-2f2b3c30a035.rna_seq.genomic.gdc_realn.bam
+TCGA-MI-A75H-01A,b4d29cc0-0f0a-4014-a80c-b709d25a6e89,TCGA-MI-A75H,Tumor,Primary Tumor,Primary,TCGA-LIHC,ac4ec2c7-9dcb-4863-9e27-00dabfa7c747.rna_seq.genomic.gdc_realn.bam
+TCGA-MI-A75I-01A,6355178b-dba6-4ad6-b3d2-b58732252dfc,TCGA-MI-A75I,Tumor,Primary Tumor,Primary,TCGA-LIHC,0ac55bd1-ee36-4795-b9d9-4a07495e5a46.rna_seq.genomic.gdc_realn.bam
+TCGA-MR-A520-01A,6c7419a7-9378-4ab4-9cc2-e20417ece15b,TCGA-MR-A520,Tumor,Primary Tumor,Primary,TCGA-LIHC,cfa0d88b-5da4-41be-b3df-7b567a6fef9c.rna_seq.genomic.gdc_realn.bam
+TCGA-MR-A8JO-01A,627e3bb2-f9ec-42d7-b18a-2397409ece8d,TCGA-MR-A8JO,Tumor,Primary Tumor,Primary,TCGA-LIHC,c54543f5-6a3a-4ec6-bf6e-9d423ddf54f9.rna_seq.genomic.gdc_realn.bam
+TCGA-NI-A4U2-01A,f005ab33-1d02-49fb-810d-ce07c4fb52e3,TCGA-NI-A4U2,Tumor,Primary Tumor,Primary,TCGA-LIHC,151ff5a0-f236-4b98-a57f-d75dbde755ab.rna_seq.genomic.gdc_realn.bam
+TCGA-NI-A8LF-01A,fccee770-009b-4d69-abc4-b47889aa2986,TCGA-NI-A8LF,Tumor,Primary Tumor,Primary,TCGA-LIHC,4b5ffc48-de6c-4f22-92c8-8c41c821a37f.rna_seq.genomic.gdc_realn.bam
+TCGA-O8-A75V-01A,22fdd306-1fe9-488c-8f66-100600764d90,TCGA-O8-A75V,Tumor,Primary Tumor,Primary,TCGA-LIHC,3ab4bb66-d6cd-4df8-9e0b-c3ce0c06c0e7.rna_seq.genomic.gdc_realn.bam
+TCGA-PD-A5DF-01A,1f81ed20-c1a1-4732-9f5c-0695cbe56d37,TCGA-PD-A5DF,Tumor,Primary Tumor,Primary,TCGA-LIHC,45b13a4b-cff9-49ea-a800-0b337cc1e512.rna_seq.genomic.gdc_realn.bam
+TCGA-QA-A7B7-01A,70717947-c880-496f-935c-93cc3c409962,TCGA-QA-A7B7,Tumor,Primary Tumor,Primary,TCGA-LIHC,04bd19d1-c3b4-446a-bf70-bbdd4a251690.rna_seq.genomic.gdc_realn.bam
+TCGA-RC-A6M3-01A,810ca6c1-893a-456b-b612-361d14fb9e63,TCGA-RC-A6M3,Tumor,Primary Tumor,Primary,TCGA-LIHC,ac2bfe26-5c96-4f44-9502-1c703b918913.rna_seq.genomic.gdc_realn.bam
+TCGA-RC-A6M4-01A,3fb6b73e-005a-47df-916e-d687a783f17d,TCGA-RC-A6M4,Tumor,Primary Tumor,Primary,TCGA-LIHC,2dae2e49-314d-4a80-8699-7ccbe516e587.rna_seq.genomic.gdc_realn.bam
+TCGA-RC-A6M5-01A,6ab26c19-7609-46f3-b5ec-1190fdba0c79,TCGA-RC-A6M5,Tumor,Primary Tumor,Primary,TCGA-LIHC,a582032e-2f32-48d5-a01c-fa21156c5a74.rna_seq.genomic.gdc_realn.bam
+TCGA-RC-A6M6-01A,f898dd4e-4364-45b3-a79d-025adf09ca58,TCGA-RC-A6M6,Tumor,Primary Tumor,Primary,TCGA-LIHC,27e73591-5670-489a-bafa-e4d8b34d74b7.rna_seq.genomic.gdc_realn.bam
+TCGA-RC-A7S9-01A,0ab6b32b-8ffb-4607-95a1-253b8dab75f1,TCGA-RC-A7S9,Tumor,Primary Tumor,Primary,TCGA-LIHC,79b50c00-e9f0-4be7-9cc4-b798a9f75702.rna_seq.genomic.gdc_realn.bam
+TCGA-RC-A7SB-01A,51e15008-b1c6-430b-9621-5a6ec2aaab12,TCGA-RC-A7SB,Tumor,Primary Tumor,Primary,TCGA-LIHC,fe3fb552-6716-4741-b851-9bb6cd358940.rna_seq.genomic.gdc_realn.bam
+TCGA-RC-A7SF-01A,6c30b854-1895-4692-aeb5-79ca13fe883e,TCGA-RC-A7SF,Tumor,Primary Tumor,Primary,TCGA-LIHC,d55e7a4a-5576-4da3-a37b-b28390ae0393.rna_seq.genomic.gdc_realn.bam
+TCGA-RC-A7SH-01A,05b45727-175b-401f-9ddb-06fb8e0664c7,TCGA-RC-A7SH,Tumor,Primary Tumor,Primary,TCGA-LIHC,88e1d720-f964-40b6-acff-d95bda7b538d.rna_seq.genomic.gdc_realn.bam
+TCGA-RC-A7SK-01A,747d38fe-3025-4e93-b903-5ea604ffabb3,TCGA-RC-A7SK,Tumor,Primary Tumor,Primary,TCGA-LIHC,f68253ac-bbdb-46f8-9cba-fdea46828fc4.rna_seq.genomic.gdc_realn.bam
+TCGA-RG-A7D4-01A,69ea798b-3a0d-4267-9a80-b439fd1d2177,TCGA-RG-A7D4,Tumor,Primary Tumor,Primary,TCGA-LIHC,1cb99a58-aee1-4c4c-a9e2-fd8c084fe073.rna_seq.genomic.gdc_realn.bam
+TCGA-T1-A6J8-01A,52048722-f991-42c7-bc87-3244957efb32,TCGA-T1-A6J8,Tumor,Primary Tumor,Primary,TCGA-LIHC,b479840d-e285-405d-ab96-c8d8aa46992d.rna_seq.genomic.gdc_realn.bam
+TCGA-UB-A7MA-01A,e78cd972-c191-47e1-9410-196ef13cad22,TCGA-UB-A7MA,Tumor,Primary Tumor,Primary,TCGA-LIHC,b119d1ea-21b8-408c-b2be-c8d68de6101c.rna_seq.genomic.gdc_realn.bam
+TCGA-UB-A7MB-01A,0437bb7b-dc8d-4129-9466-9eb6daeda3e1,TCGA-UB-A7MB,Tumor,Primary Tumor,Primary,TCGA-LIHC,dffd181a-c6f1-49e0-b23d-d91065a0171a.rna_seq.genomic.gdc_realn.bam
+TCGA-UB-A7MC-01A,1438709e-7327-40ed-bb43-4bc3bbc81f51,TCGA-UB-A7MC,Tumor,Primary Tumor,Primary,TCGA-LIHC,7c1d65f0-c157-4502-a8ed-c88578d4eade.rna_seq.genomic.gdc_realn.bam
+TCGA-UB-A7MD-01A,e584d0fb-f874-4e37-8b7d-7d8242076d5b,TCGA-UB-A7MD,Tumor,Primary Tumor,Primary,TCGA-LIHC,ae0d8ed3-e789-4ef8-b0c2-58e8ad7a3962.rna_seq.genomic.gdc_realn.bam
+TCGA-UB-A7ME-01A,21bfcbc1-bf8a-442f-899b-8d668d481c5d,TCGA-UB-A7ME,Tumor,Primary Tumor,Primary,TCGA-LIHC,c5ac862b-ef1c-4299-9afb-99d5f0e52fdc.rna_seq.genomic.gdc_realn.bam
+TCGA-UB-A7MF-01A,61ed6fd5-5a26-4a53-be23-de4b66e0971f,TCGA-UB-A7MF,Tumor,Primary Tumor,Primary,TCGA-LIHC,6671e092-52aa-4fff-b052-21bfe69a1658.rna_seq.genomic.gdc_realn.bam
+TCGA-UB-AA0U-01A,5d0da552-f453-4894-ba5f-20748b27b92a,TCGA-UB-AA0U,Tumor,Primary Tumor,Primary,TCGA-LIHC,a5c61ad6-de4c-4ca4-ad28-f8f9d55af906.rna_seq.genomic.gdc_realn.bam
+TCGA-UB-AA0V-01A,8175754e-7e02-44ec-ace0-da30276c866d,TCGA-UB-AA0V,Tumor,Primary Tumor,Primary,TCGA-LIHC,5e8476a1-5aa4-48d6-b4a8-d76e52a18d43.rna_seq.genomic.gdc_realn.bam
+TCGA-WJ-A86L-01A,fd78eee8-cde3-4210-a953-0a90b886ff46,TCGA-WJ-A86L,Tumor,Primary Tumor,Primary,TCGA-LIHC,25cb96a0-40d9-4d91-b997-efa79962f6e2.rna_seq.genomic.gdc_realn.bam
+TCGA-WQ-A9G7-01A,cc461786-c17b-4cb7-879d-89afd4cd9121,TCGA-WQ-A9G7,Tumor,Primary Tumor,Primary,TCGA-LIHC,2406118f-a7ea-42f0-89b7-8a6344b826d8.rna_seq.genomic.gdc_realn.bam
+TCGA-WQ-AB4B-01A,b0bed5b4-b0e6-47f4-bf4c-69e988d321c6,TCGA-WQ-AB4B,Tumor,Primary Tumor,Primary,TCGA-LIHC,819f5d2c-3340-48d7-913c-b3c96f4c331e.rna_seq.genomic.gdc_realn.bam
+TCGA-WX-AA44-01A,3c6c5e9a-f384-4484-9c8e-7f9cf4bc6df1,TCGA-WX-AA44,Tumor,Primary Tumor,Primary,TCGA-LIHC,dc7a905c-1ee0-40c4-94aa-5d5d6e604c51.rna_seq.genomic.gdc_realn.bam
+TCGA-WX-AA46-01A,adf3ad3b-fd4a-4f6d-ad5f-bde09570b6d4,TCGA-WX-AA46,Tumor,Primary Tumor,Primary,TCGA-LIHC,b8dc06dd-4d60-4c28-94df-e62b6044201c.rna_seq.genomic.gdc_realn.bam
+TCGA-WX-AA47-01A,6d9a02b1-becc-4436-a7b7-ea930f653920,TCGA-WX-AA47,Tumor,Primary Tumor,Primary,TCGA-LIHC,b9a6d63c-70cc-46bd-becc-b595a2052194.rna_seq.genomic.gdc_realn.bam
+TCGA-XR-A8TC-01A,1585e04e-1703-4107-be67-d30961ab6d7a,TCGA-XR-A8TC,Tumor,Primary Tumor,Primary,TCGA-LIHC,301b745d-b48e-4639-926f-1f9b6d42dc8e.rna_seq.genomic.gdc_realn.bam
+TCGA-XR-A8TD-01A,5e451865-b7f6-419f-89d2-4929647d1e12,TCGA-XR-A8TD,Tumor,Primary Tumor,Primary,TCGA-LIHC,d817d1df-e655-4741-9f29-066f02345dfa.rna_seq.genomic.gdc_realn.bam
+TCGA-XR-A8TE-01A,836730da-acf4-4d63-b397-485669469391,TCGA-XR-A8TE,Tumor,Primary Tumor,Primary,TCGA-LIHC,664b7261-91fd-4b1e-b7c9-bc95a15a0f14.rna_seq.genomic.gdc_realn.bam
+TCGA-XR-A8TF-01A,ef85524c-b3a8-4387-a933-a5fbdc5531bb,TCGA-XR-A8TF,Tumor,Primary Tumor,Primary,TCGA-LIHC,32e9669c-0c2c-47a5-b53b-c833c776607d.rna_seq.genomic.gdc_realn.bam
+TCGA-XR-A8TG-01A,0f76d7ef-8119-4eef-91a9-3150e3ca764b,TCGA-XR-A8TG,Tumor,Primary Tumor,Primary,TCGA-LIHC,9ea1ae11-2d1e-4d55-bbc6-c6f136041c6d.rna_seq.genomic.gdc_realn.bam
+TCGA-YA-A8S7-01A,93072d2d-ee2a-4ad7-9ac0-ba2e6a98e18f,TCGA-YA-A8S7,Tumor,Primary Tumor,Primary,TCGA-LIHC,4344c7ea-ef72-4e2a-b65c-99aa64f4a0b1.rna_seq.genomic.gdc_realn.bam
+TCGA-ZP-A9CV-01A,4ea2268a-9968-4f2c-a623-8edd0d103deb,TCGA-ZP-A9CV,Tumor,Primary Tumor,Primary,TCGA-LIHC,b496f33b-4f96-408d-9851-c5ccf57640c3.rna_seq.genomic.gdc_realn.bam
+TCGA-ZP-A9CY-01A,ebb2506e-5832-48fc-80fe-22065fab9c22,TCGA-ZP-A9CY,Tumor,Primary Tumor,Primary,TCGA-LIHC,eb4729c2-5a8e-454a-92ba-edb13d2f0773.rna_seq.genomic.gdc_realn.bam
+TCGA-ZP-A9CZ-01A,7cceb495-34ba-43bc-853f-626ecb0c6857,TCGA-ZP-A9CZ,Tumor,Primary Tumor,Primary,TCGA-LIHC,9262c029-3b86-4582-82a1-ace640871d9c.rna_seq.genomic.gdc_realn.bam
+TCGA-ZP-A9D0-01A,b293f9b2-5af7-45ac-9aa8-aa47ea699936,TCGA-ZP-A9D0,Tumor,Primary Tumor,Primary,TCGA-LIHC,bff35005-41e0-4aa8-b423-083064236144.rna_seq.genomic.gdc_realn.bam
+TCGA-ZP-A9D1-01A,ed5d523b-e56d-49d8-a7d9-650437b5e1a0,TCGA-ZP-A9D1,Tumor,Primary Tumor,Primary,TCGA-LIHC,24809123-23ac-405c-b92f-0e9d21cc4dd8.rna_seq.genomic.gdc_realn.bam
+TCGA-ZP-A9D2-01A,93f05b54-c348-463b-9f46-716d215742e6,TCGA-ZP-A9D2,Tumor,Primary Tumor,Primary,TCGA-LIHC,ccd1e964-a15c-4e87-9837-9c14f94d0e37.rna_seq.genomic.gdc_realn.bam
+TCGA-ZP-A9D4-01A,913cb0fe-7b14-4d78-b7bf-6366f28b93a2,TCGA-ZP-A9D4,Tumor,Primary Tumor,Primary,TCGA-LIHC,be150892-6890-4414-9f4d-aeda4ee38708.rna_seq.genomic.gdc_realn.bam
+TCGA-ZS-A9CD-01A,96f1dd92-840f-466b-8dda-c5b481baa841,TCGA-ZS-A9CD,Tumor,Primary Tumor,Primary,TCGA-LIHC,f47c6ff3-b50c-4f10-9e83-fae95f86dfce.rna_seq.genomic.gdc_realn.bam
+TCGA-ZS-A9CE-01A,b3441e2e-9724-4e62-95f8-86bbb8bb2cfb,TCGA-ZS-A9CE,Tumor,Primary Tumor,Primary,TCGA-LIHC,025b207d-8097-4c9d-856a-d404887f4bfb.rna_seq.genomic.gdc_realn.bam
+TCGA-ZS-A9CF-01A,cfde907a-9e09-4077-a9c4-31a5ddf010bb,TCGA-ZS-A9CF,Tumor,Primary Tumor,Primary,TCGA-LIHC,6ae3f7f6-2ee4-4d30-9263-2945905df4eb.rna_seq.genomic.gdc_realn.bam
+TCGA-ZS-A9CG-01A,e9072a98-e8d1-4c91-979b-d4de5a87ef7b,TCGA-ZS-A9CG,Tumor,Primary Tumor,Primary,TCGA-LIHC,3be93921-b171-44e3-a1d8-4da348948b56.rna_seq.genomic.gdc_realn.bam
