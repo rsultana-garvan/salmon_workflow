@@ -1,0 +1,30 @@
+# Nextflow runtime
+work/
+.nextflow/
+.nextflow.log*
+results/
+results_*/
+trace.txt
+report.html
+timeline.html
+dag.*
+
+# Secrets: never commit GDC tokens
+gdc-user-token*
+*.token
+*token*.txt
+
+# Large / generated data
+*.bam
+*.bai
+*.fastq
+*.fastq.gz
+*.sf
+salmon_index*/
+
+# Python / editors
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+.DS_Store

@@ -1,0 +1,3 @@
+sample,gdc_file_id,case,tissue_type,sample_type,tumor_descriptor,project_id,file_name
+TCGA-XX-0001-01A,00000000-0000-0000-0000-000000000001,TCGA-XX-0001,Tumor,Primary Tumor,Primary,TCGA-XXXX,example_tumor.rna_seq.genomic.gdc_realn.bam
+TCGA-XX-0001-11A,00000000-0000-0000-0000-000000000002,TCGA-XX-0001,Normal,Solid Tissue Normal,Not Applicable,TCGA-XXXX,example_normal.rna_seq.genomic.gdc_realn.bam
