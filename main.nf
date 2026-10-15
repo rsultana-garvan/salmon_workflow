@@ -187,6 +187,12 @@ process CLEANUP {
         echo "Removing \$target"
         rm -f "\$target"
     done
+
+    # BAM index files (.bam.bai / .bai / .csi) are not staged, so remove them next to each real BAM
+    for f in ${bams}; do
+        target=\$(readlink -f "\$f")
+        rm -fv "\${target}.bai" "\${target%.bam}.bai" "\${target}.csi"
+    done
     """
 }
 
