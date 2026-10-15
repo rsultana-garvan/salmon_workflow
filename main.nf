@@ -182,17 +182,100 @@ process CLEANUP {
         exit 1
     fi
 
-    for f in ${bams} ${fastq_1} ${fastq_2}; do
+    # Resolve every symlink to its real file BEFORE deleting anything (a dangling link cannot be resolved).
+    for f in ${bams}; do
+        target=\$(readlink -f "\$f")
+        echo "Removing \$target"
+        # also the BAM index files (.bam.bai / .bai / .csi) that gdc-client downloads next to the BAM; they are not staged
+        rm -fv "\$target" "\${target}.bai" "\${target%.bam}.bai" "\${target}.csi"
+    done
+
+    for f in ${fastq_1} ${fastq_2}; do
         target=\$(readlink -f "\$f")
         echo "Removing \$target"
         rm -f "\$target"
     done
+    """
+}
 
-    # BAM index files (.bam.bai / .bai / .csi) are not staged, so remove them next to each real BAM
-    for f in ${bams}; do
-        target=\$(readlink -f "\$f")
-        rm -fv "\${target}.bai" "\${target%.bam}.bai" "\${target}.csi"
-    done
+/*
+ * Fused mode (Google Batch): one task per sample does download -> BAM->FASTQ -> Salmon entirely on the
+ * task's local disk, so no BAM/FASTQ is ever written to the bucket or moved between tasks, and the
+ * large files are deleted as soon as they are no longer needed (BAM after the FASTQs exist, FASTQs
+ * after Salmon succeeded). Only the Salmon output is published. One BAM = one sample here.
+ */
+process QUANT_FROM_GDC {
+    tag "${sample}:${file_id}"
+    label 'fused'
+    publishDir "${params.outdir}", mode: 'copy', pattern: "${sample}"
+    publishDir "${params.outdir}/fastq_stats", mode: 'copy', pattern: '*.fastq_stats.txt'
+
+    input:
+    tuple val(sample), val(file_id)
+    path token
+    path index
+    path gene_map
+
+    output:
+    tuple val(sample), path("${sample}"), emit: quant_dir
+    path "${file_id}.fastq_stats.txt", emit: stats
+
+    script:
+    """
+    # 1. download the BAM
+    gdc-client download \\
+        --token-file ${token} \\
+        --dir . \\
+        --n-processes 4 \\
+        ${file_id}
+    BAM=\$(ls ${file_id}/*.bam)
+
+    # 2. BAM -> paired FASTQ (same commands as BAM_TO_FASTQ), then drop the BAM and its index
+    samtools collate -@ 4 -u -O "\$BAM" ${file_id}.collate_tmp | \\
+        samtools fastq -@ 4 -n -c 4 \\
+            -1 ${file_id}_R1.fastq.gz \\
+            -2 ${file_id}_R2.fastq.gz \\
+            -0 /dev/null \\
+            -s ${file_id}_singletons.fastq.gz \\
+            -
+    rm -rf ${file_id} ${file_id}.collate_tmp*
+
+    R1_BYTES=\$(stat -c%s ${file_id}_R1.fastq.gz)
+    if [ "\$R1_BYTES" -lt 100 ]; then
+        echo "ERROR: R1 FASTQ is empty; BAM may be single-end or lack paired reads" >&2
+        exit 1
+    fi
+    N_SINGLE=\$(( \$(gzip -dc ${file_id}_singletons.fastq.gz | wc -l) / 4 ))
+    printf 'file_id\\tsingleton_reads\\n%s\\t%s\\n' "${file_id}" "\$N_SINGLE" > ${file_id}.fastq_stats.txt
+    rm -f ${file_id}_singletons.fastq.gz
+
+    # 3. Salmon
+    GENE_MAP="${gene_map}"
+    if [[ "\$GENE_MAP" == *.gz ]]; then
+        gunzip -c "\$GENE_MAP" > "${gene_map.baseName}"
+        GENE_MAP="${gene_map.baseName}"
+    fi
+
+    salmon quant \\
+        --no-version-check \\
+        --index ${index} \\
+        --libType A \\
+        --mates1 ${file_id}_R1.fastq.gz \\
+        --mates2 ${file_id}_R2.fastq.gz \\
+        --threads ${task.cpus} \\
+        --numBootstraps ${params.num_bootstraps} \\
+        --seqBias \\
+        --gcBias \\
+        --dumpEq \\
+        --geneMap "\$GENE_MAP" \\
+        --output ${sample}
+
+    # 4. only now (Salmon succeeded) remove the FASTQs, after checking the output looks complete
+    if [ ! -s ${sample}/quant.sf ] || [ "\$(wc -l < ${sample}/quant.genes.sf)" -lt 1000 ]; then
+        echo "ERROR: ${sample}/quant.sf or quant.genes.sf missing/too small" >&2
+        exit 1
+    fi
+    rm -f ${file_id}_R1.fastq.gz ${file_id}_R2.fastq.gz
     """
 }
 
@@ -261,18 +344,23 @@ workflow {
         samples_ch = Channel.fromList(rows).map { row -> tuple(row.sample as String, row.gdc_file_id as String) }
         token      = file(params.gdc_token, checkIfExists: true)
 
-        DOWNLOAD_BAM(samples_ch, token)
-        BAM_TO_FASTQ(DOWNLOAD_BAM.out.bam)
+        if (params.fused) {
+            if (dups) { error "--fused needs one BAM per sample; duplicate sample name(s): ${dups.join(', ')}" }
+        }
+        else {
+            DOWNLOAD_BAM(samples_ch, token)
+            BAM_TO_FASTQ(DOWNLOAD_BAM.out.bam)
 
-        reads_ch = BAM_TO_FASTQ.out.fastq
-            .map { s, r1, r2 -> tuple(groupKey(s, counts[s]), r1, r2) }
-            .groupTuple()
-            .map { key, r1, r2 -> tuple(key.getGroupTarget() as String, r1, r2) }
+            reads_ch = BAM_TO_FASTQ.out.fastq
+                .map { s, r1, r2 -> tuple(groupKey(s, counts[s]), r1, r2) }
+                .groupTuple()
+                .map { key, r1, r2 -> tuple(key.getGroupTarget() as String, r1, r2) }
 
-        bams_ch = DOWNLOAD_BAM.out.bam
-            .map { s, id, bam -> tuple(groupKey(s, counts[s]), bam) }
-            .groupTuple()
-            .map { key, bams -> tuple(key.getGroupTarget() as String, bams) }
+            bams_ch = DOWNLOAD_BAM.out.bam
+                .map { s, id, bam -> tuple(groupKey(s, counts[s]), bam) }
+                .groupTuple()
+                .map { key, bams -> tuple(key.getGroupTarget() as String, bams) }
+        }
     }
 
     // Salmon index: directory or tar.gz
@@ -284,9 +372,14 @@ workflow {
     }
     gene_map_ch = Channel.value(file(params.gene_map, checkIfExists: true))
 
-    SALMON_QUANT(reads_ch, index_ch, gene_map_ch)
+    if (params.fused && !params.fastq_samplesheet) {
+        QUANT_FROM_GDC(samples_ch, token, index_ch, gene_map_ch)
+    }
+    else {
+        SALMON_QUANT(reads_ch, index_ch, gene_map_ch)
 
-    if (!params.fastq_samplesheet && params.cleanup) {
-        CLEANUP( bams_ch.join(reads_ch).join(SALMON_QUANT.out.quant_dir) )
+        if (!params.fastq_samplesheet && params.cleanup) {
+            CLEANUP( bams_ch.join(reads_ch).join(SALMON_QUANT.out.quant_dir) )
+        }
     }
 }

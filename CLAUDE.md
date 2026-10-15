@@ -119,6 +119,24 @@ removed from `work/`.
 9. Housekeeping: README, `stub:` blocks plus a tiny test fixture (nf-test or `-stub-run`), repo layout
    (`bin/`, `assets/`, `modules/`), CI.
 
+## Google Batch / fused mode (written, NOT yet run on Batch)
+
+- `--fused true` runs one task per sample (`QUANT_FROM_GDC`): download -> BAM->FASTQ -> Salmon on the task's local
+  disk; BAM is deleted once the FASTQs exist, FASTQs once Salmon succeeded; only `results/<sample>/` and
+  `fastq_stats` are published. No big files cross the bucket. One BAM = one sample (errors on duplicates).
+- `-profile google_batch`: executor `google-batch`, Spot VMs (`maxSpotAttempts = 5`, exit 50001 retried),
+  project `amaroq-495623`, location `us-east1`, workDir `gs://garvan-dbgap-controlled/nextflow-work`,
+  `executor.queueSize = 20`. Keep bucket, Batch jobs and Salmon index in ONE region (us-east1): cross-region
+  reads of the 17 GB index x 421 samples would cost more than the compute.
+- Fused tasks need ONE image with gdc-client + samtools + salmon: `docker/Dockerfile` (build with Cloud Build,
+  tag in `params.fused_container`; untested). `label 'fused'` = e2-standard-16, 150 GB disk.
+- Tested only with fake gdc-client/samtools/salmon shims on a Mac (script logic, wiring, cleanup, outputs).
+  NOT tested: the image, real Batch run, how the Salmon index is read from `gs://` (copy to local disk if slow),
+  where `disk` lands, the GDC token being staged into the bucket workDir (delete `nextflow-work/` afterwards).
+- `num_bootstraps` default is now 0. CLEANUP now resolves symlinks before deleting and also removes `.bai`/`.csi`.
+- Estimate: ~210 VM-hours of e2-standard-16 for 421 samples (~$55-115 compute); first do a 2-sample Batch run
+  with `process.resourceLabels` and read the real per-sample cost from billing.
+
 ## Working agreements
 
 - Never commit tokens, `work/`, `results*/` or `.nextflow*` (see `.gitignore`).
