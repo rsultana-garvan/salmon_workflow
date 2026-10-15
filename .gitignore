@@ -21,6 +21,8 @@ samplesheet.csv
 *.fastq.gz
 *.sf
 salmon_index*/
+annotation/
+
 
 # Python / editors
 __pycache__/
