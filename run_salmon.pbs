@@ -1,0 +1,38 @@
+#!/bin/bash
+#PBS -N salmon_ccle
+#PBS -q normal
+#PBS -P vh48
+#PBS -j oe
+#PBS -l ncpus=24
+#PBS -l mem=96GB
+#PBS -l jobfs=50GB
+#PBS -l storage=gdata/vh48+gdata/io72
+#PBS -l walltime=06:00:00
+#PBS -l wd
+
+# Salmon over pre-downloaded FASTQs on the normal queue (no network needed).
+# 24 CPUs = two concurrent Salmon tasks (the salmon label asks for 12 CPUs, 40 GB).
+#
+#   qsub -v FASTQ_SHEET=/g/data/vh48/AmaroqTx/ccle_fastq/fastq_samplesheet.csv,OUTDIR=results_ccle run_salmon.pbs
+#
+# Add LIMIT=1 to the -v list for a one-sample test. Resume with RESUME=<FULL session id>.
+
+set -euo pipefail
+cd "${PBS_O_WORKDIR:-$PWD}"
+
+ANNOT="${ANNOT:-/g/data/vh48/AmaroqTx/Annotation}"
+FASTQ_SHEET="${FASTQ_SHEET:?set FASTQ_SHEET=<.../fastq_samplesheet.csv>}"
+OUTDIR="${OUTDIR:-results_ccle}"
+
+module load "${NF_MODULE:-nextflow/25.04.6}" "${SALMON_MODULE:-salmon/1.10.1}"
+export NXF_OFFLINE=true   # compute nodes have no network: no update/plugin checks
+
+ARGS=(--fastq_samplesheet "$FASTQ_SHEET"
+      --salmon_index "$ANNOT/salmon_index"
+      --gene_map "$ANNOT/gencode.v49.genemap.tsv.gz"
+      --num_bootstraps "${BOOTSTRAPS:-0}"
+      --outdir "$OUTDIR")
+[ -n "${LIMIT:-}" ]  && ARGS+=(--limit_rows "$LIMIT")
+RES=(); [ -n "${RESUME:-}" ] && RES=(-resume "$RESUME")
+
+nextflow run main.nf "${RES[@]}" "${ARGS[@]}"

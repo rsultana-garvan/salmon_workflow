@@ -1,0 +1,129 @@
+#!/bin/bash
+#PBS -N sra_dump
+#PBS -q normal
+#PBS -P vh48
+#PBS -j oe
+#PBS -l ncpus=16
+#PBS -l mem=64GB
+#PBS -l jobfs=300GB
+#PBS -l storage=gdata/vh48+gdata/io72
+#PBS -l walltime=08:00:00
+#PBS -l wd
+
+# Stage 2 of 2 for Gadi: .sra -> paired FASTQ.gz, on a many-CPU node (no
+# network needed). Run after prefetch_sra.sh. Writes
+# $OUTDIR/<SRR>_R1.fastq.gz / _R2.fastq.gz and $OUTDIR/fastq_samplesheet.csv,
+# which main.nf's --fastq_samplesheet mode consumes.
+#
+# fasterq-dump's temp + uncompressed FASTQ (~80 GB at peak for a 16 Gbase run)
+# go to the node-local $PBS_JOBFS, so only the .gz reaches /g/data.
+#
+#   qsub -v SRA_SHEET=sra_samplesheet_liver.csv,OUTDIR=/g/data/vh48/AmaroqTx/ccle_fastq dump_sra_fastq.pbs
+#
+# Idempotent: runs whose R1+R2 exist are skipped, so a walltime kill is just
+# resubmitted. DELETE_SRA=1 removes a run's .sra after its FASTQs are written.
+#
+# These are aligned (cSRA) runs: fasterq-dump needs the reference sequences
+# that prefetch_sra.sh stored under $OUTDIR/ncbi. If it fails here with a
+# reference/network error, that is the cause: see the notes in prefetch_sra.sh.
+
+set -euo pipefail
+
+SRA_SHEET="${1:-${SRA_SHEET:-sra_samplesheet.csv}}"
+OUTDIR="${2:-${OUTDIR:-fastq}}"
+THREADS="${THREADS:-${PBS_NCPUS:-4}}"
+DELETE_SRA="${DELETE_SRA:-0}"
+
+cd "${PBS_O_WORKDIR:-$PWD}"
+
+if ! command -v fasterq-dump >/dev/null && command -v module >/dev/null; then
+    module use /g/data/io72/apps/Modules/modulefiles
+    module load "${SRA_MODULE:-sra-tools/3.2.1}"
+fi
+command -v fasterq-dump >/dev/null || { echo "ERROR: fasterq-dump not on PATH (load sra-tools)" >&2; exit 2; }
+if ! command -v pigz >/dev/null && command -v module >/dev/null; then
+    module load pigz 2>/dev/null || true
+fi
+command -v pigz >/dev/null || echo "WARNING: no pigz; gzip runs 2 processes only (R1 and R2 in parallel) and is slow" >&2
+
+[ -f "$SRA_SHEET" ] || { echo "ERROR: samplesheet not found: $SRA_SHEET" >&2; exit 2; }
+[ -d "$OUTDIR/sra" ] || { echo "ERROR: $OUTDIR/sra missing; run prefetch_sra.sh first" >&2; exit 2; }
+OUTDIR="$(cd "$OUTDIR" && pwd)"
+export NCBI_SETTINGS="$OUTDIR/user-settings.mkfg"
+[ -f "$NCBI_SETTINGS" ] || { echo "ERROR: $NCBI_SETTINGS missing; run prefetch_sra.sh first" >&2; exit 2; }
+
+STATS="$OUTDIR/fastq_stats"; mkdir -p "$STATS"
+SHEET_OUT="$OUTDIR/fastq_samplesheet.csv"
+TMPROOT="${PBS_JOBFS:-$OUTDIR/.tmp}"; mkdir -p "$TMPROOT"
+
+echo "samplesheet : $SRA_SHEET"
+echo "outdir      : $OUTDIR"
+echo "threads     : $THREADS"
+echo "temp        : $TMPROOT"
+echo
+
+read -r HEADER < "$SRA_SHEET"
+col() { echo "$HEADER" | tr ',' '\n' | grep -nx "$1" | cut -d: -f1; }
+SAMPLE_COL="$(col sample || true)"; SRR_COL="$(col srr_run || true)"
+[ -n "$SAMPLE_COL" ] && [ -n "$SRR_COL" ] || {
+    echo "ERROR: $SRA_SHEET needs 'sample' and 'srr_run' columns; got: $HEADER" >&2; exit 2; }
+
+printf 'sample,fastq_1,fastq_2\n' > "$SHEET_OUT"
+
+gz() {  # gz <in> <out>: atomic, so a killed job never leaves a truncated .gz
+    if command -v pigz >/dev/null; then pigz -p "$THREADS" -c "$1" > "$2.tmp"
+    else gzip -c "$1" > "$2.tmp"; fi
+    mv "$2.tmp" "$2"
+}
+
+n_done=0; n_skip=0; n_fail=0; n_missing=0
+while IFS=, read -r -a FIELDS; do
+    SAMPLE="${FIELDS[$((SAMPLE_COL-1))]}"
+    SRR="${FIELDS[$((SRR_COL-1))]}"
+    [ -n "${SRR:-}" ] || continue
+    R1="$OUTDIR/${SRR}_R1.fastq.gz"; R2="$OUTDIR/${SRR}_R2.fastq.gz"
+
+    if [ -s "$R1" ] && [ -s "$R2" ]; then
+        echo "[skip] $SAMPLE $SRR (FASTQ exists)"
+        n_skip=$((n_skip+1))
+        printf '%s,%s,%s\n' "$SAMPLE" "$R1" "$R2" >> "$SHEET_OUT"; continue
+    fi
+    if [ ! -e "$OUTDIR/sra/$SRR.done" ]; then
+        echo "[wait] $SAMPLE $SRR not prefetched yet" >&2
+        n_missing=$((n_missing+1)); continue
+    fi
+
+    echo "[dump] $SAMPLE $SRR  $(date +%T)"
+    W="$TMPROOT/$SRR"; rm -rf "$W"; mkdir -p "$W"
+    if ! fasterq-dump --split-3 --threads "$THREADS" --temp "$W/tmp" --outdir "$W" \
+            "$OUTDIR/sra/$SRR/$SRR.sra"; then
+        echo "[FAIL] fasterq-dump $SRR" >&2; n_fail=$((n_fail+1)); rm -rf "$W"; continue
+    fi
+    if [ ! -s "$W/${SRR}_1.fastq" ] || [ ! -s "$W/${SRR}_2.fastq" ]; then
+        echo "[FAIL] $SRR produced no paired FASTQ (single-end?)" >&2
+        n_fail=$((n_fail+1)); rm -rf "$W"; continue
+    fi
+
+    N_SINGLE=0
+    [ -s "$W/${SRR}.fastq" ] && N_SINGLE=$(( $(wc -l < "$W/${SRR}.fastq") / 4 ))
+    printf 'srr_run\tsingleton_reads\n%s\t%s\n' "$SRR" "$N_SINGLE" > "$STATS/${SRR}.fastq_stats.txt"
+
+    if command -v pigz >/dev/null; then
+        gz "$W/${SRR}_1.fastq" "$R1"; gz "$W/${SRR}_2.fastq" "$R2"
+    else
+        gz "$W/${SRR}_1.fastq" "$R1" & gz "$W/${SRR}_2.fastq" "$R2" & wait
+    fi
+    rm -rf "$W"
+    [ "$DELETE_SRA" = 1 ] && rm -rf "$OUTDIR/sra/$SRR"
+
+    printf '%s,%s,%s\n' "$SAMPLE" "$R1" "$R2" >> "$SHEET_OUT"
+    n_done=$((n_done+1)); echo "[ok  ] $SRR  $(date +%T)"
+done < <(tail -n +2 "$SRA_SHEET")
+
+echo
+echo "dumped     : $n_done"
+echo "skipped    : $n_skip (FASTQ already present)"
+echo "not ready  : $n_missing (not prefetched; rerun after prefetch_sra.sh)"
+echo "failed     : $n_fail"
+echo "samplesheet: $SHEET_OUT"
+[ "$n_fail" -eq 0 ] || { echo "ERROR: $n_fail run(s) failed; see above." >&2; exit 1; }

@@ -128,12 +128,14 @@ while IFS=, read -r -a FIELDS; do
     [ -s "$WORK/${SRR}.fastq" ] && N_SINGLE=$(( $(wc -l < "$WORK/${SRR}.fastq") / 4 ))
     printf 'srr_run\tsingleton_reads\n%s\t%s\n' "$SRR" "$N_SINGLE" > "$STATS/${SRR}.fastq_stats.txt"
 
+    # Write to .tmp and rename: a job killed mid-compression must not leave a
+    # truncated .gz that the -s skip test above would accept on resubmit.
     if command -v pigz >/dev/null 2>&1; then
-        pigz -p "$THREADS" -c "$WORK/${SRR}_1.fastq" > "$R1"
-        pigz -p "$THREADS" -c "$WORK/${SRR}_2.fastq" > "$R2"
+        pigz -p "$THREADS" -c "$WORK/${SRR}_1.fastq" > "$R1.tmp" && mv "$R1.tmp" "$R1"
+        pigz -p "$THREADS" -c "$WORK/${SRR}_2.fastq" > "$R2.tmp" && mv "$R2.tmp" "$R2"
     else
-        gzip -c "$WORK/${SRR}_1.fastq" > "$R1"
-        gzip -c "$WORK/${SRR}_2.fastq" > "$R2"
+        gzip -c "$WORK/${SRR}_1.fastq" > "$R1.tmp" && mv "$R1.tmp" "$R1"
+        gzip -c "$WORK/${SRR}_2.fastq" > "$R2.tmp" && mv "$R2.tmp" "$R2"
     fi
     rm -rf "$WORK"
 

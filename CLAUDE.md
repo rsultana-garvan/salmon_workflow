@@ -68,14 +68,16 @@ CCLE RNA-seq in PRJNA523380 is **open** data (no token, no dbGaP), so it can run
 - **Google Batch**: `--sra_samplesheet --fused true` (`QUANT_FROM_SRA`), same reasoning as the GDC
   fused mode -- no `.sra` or FASTQ crosses the bucket.
 - **Gadi**: the pipeline canNOT download during the run. Only `copyq` has outbound network and it is
-  capped at 1 CPU, so it cannot also run Salmon; `normal` has the CPUs but no network. Split it:
-  1. `qsub download_sra_fastq.sh` on **copyq** -- prefetch + fasterq-dump every run into one
-     directory and write `<OUTDIR>/fastq_samplesheet.csv`. Idempotent: already-downloaded runs are
-     skipped, so a job that hits the 10 h copyq walltime is just resubmitted.
-  2. On **normal**, run main.nf with `--fastq_samplesheet <OUTDIR>/fastq_samplesheet.csv`.
-     No network needed; `CLEANUP` does not apply, and the pre-downloaded FASTQs are inputs so the
-     pipeline never deletes them (verified).
-  Needs sra-tools on PATH on copyq (module or conda env); the script checks and stops early.
+  capped at 1 CPU; `normal` has the CPUs but no network. Three stages (modules: `sra-tools/3.2.1` from
+  `/g/data/io72` so jobs need `gdata/io72` in `-l storage`; `nextflow/25.04.6`; `salmon/1.10.1`):
+  1. `qsub prefetch_sra.sh` on **copyq** -- `.sra` only (~8.5 GB/run, ~11 min). Idempotent via `.done` markers.
+  2. `qsub dump_sra_fastq.pbs` on **normal** (16 CPUs, temp in `$PBS_JOBFS`) -- fasterq-dump + pigz, writes
+     `<OUTDIR>/fastq_samplesheet.csv`. CCLE runs are aligned cSRA, so this needs the reference sequences that
+     prefetch stored under `<OUTDIR>/ncbi` (same `NCBI_SETTINGS` file in both stages).
+  3. `qsub run_salmon.pbs` on **normal** -- `--fastq_samplesheet` mode; pre-downloaded FASTQs are inputs so are never deleted.
+  `download_sra_fastq.sh` still does 1+2 in one 1-CPU copyq job (measured: SRR8616130, 16.4 Gbases: 64 min =
+  11 prefetch + 16 fasterq-dump + 37 single-thread gzip). Both assumptions below were verified by that run:
+  `fasterq-dump` on a `.sra` path writes `<SRR>_1/_2.fastq`, and the inline `user-settings.mkfg` works.
 
 Typical commands:
 
@@ -130,11 +132,13 @@ SRA path -- verified with shims on the Mac (conda env `salmon`: Nextflow 24.10.6
 - Local gotcha: `withLabel: salmon { cpus = 12 }` exceeds a 10-core Mac, so local runs need a
   resource override (same shape as `fused_local.config`).
 
-STILL NOT verified for the SRA path (the shims cannot tell us):
-- That real `fasterq-dump` names its output `<SRR>_1.fastq`/`_2.fastq` when given a `.sra` PATH
-  rather than an accession, and that the `user-settings.mkfg` trick stops sra-tools asking for a
-  config. **These two assumptions are what a `--limit_rows 1` run with real sra-tools must check
-  first.**
+Verified on Gadi (2026-10-23, SRR8616130 via `download_sra_fastq.sh` on copyq, exit 0):
+- Real `fasterq-dump` on a `.sra` path writes `<SRR>_1.fastq`/`_2.fastq`; the `user-settings.mkfg` trick works;
+  162,675,410 reads written = 2 x 81,337,705 spots; R1/R2 are 5.0/5.1 GB gz.
+
+STILL NOT verified for the SRA path:
+- Offline `fasterq-dump` on `normal` (dump_sra_fastq.pbs): these are aligned cSRA runs (72 reference
+  dependencies), so it needs the refseqs that prefetch fetched; where prefetch put them is unconfirmed.
 - `docker/Dockerfile.sra` has never been built; `params.sra_fused_container` is a placeholder tag.
 - Disk sizing: liver runs are ~17-23 Gbases, so confirm the `sra` label's 100 GB covers
   `.sra` + fasterq-dump temp + FASTQ before scaling up.
