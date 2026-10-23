@@ -3,8 +3,8 @@
 #PBS -q normal
 #PBS -P vh48
 #PBS -j oe
-#PBS -l ncpus=24
-#PBS -l mem=96GB
+#PBS -l ncpus=12
+#PBS -l mem=48GB
 #PBS -l jobfs=50GB
 #PBS -l storage=gdata/vh48+gdata/io72
 #PBS -l walltime=06:00:00
