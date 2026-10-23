@@ -32,10 +32,10 @@
 # Idempotent: a run whose R1+R2 already exist is skipped, so a job that hits
 # the copyq walltime can simply be resubmitted and will carry on.
 #
-# Requires prefetch + fasterq-dump (sra-tools) on PATH. On Gadi load whatever
-# module or conda env provides them, e.g.
-#   module use /g/data/io72/apps/Modules/modulefiles && module load sratoolkit
-# or activate a conda env that has sra-tools. The script checks and stops early.
+# Requires prefetch + fasterq-dump (sra-tools) on PATH. On Gadi the script loads
+# sra-tools/3.2.1 (override with SRA_MODULE=...) from /g/data/io72, which is why
+# the job needs gdata/io72 in -l storage. Or activate a conda env that has
+# sra-tools first. The script checks and stops early.
 
 set -euo pipefail
 
@@ -45,6 +45,13 @@ OUTDIR="${2:-${OUTDIR:-fastq}}"
 THREADS="${THREADS:-${PBS_NCPUS:-4}}"
 
 cd "${PBS_O_WORKDIR:-$PWD}"
+
+# A qsub job does not inherit the login shell's modules; load sra-tools here
+# when the tools are not already on PATH (e.g. a conda env was activated).
+if ! command -v prefetch >/dev/null && command -v module >/dev/null; then
+    module use /g/data/io72/apps/Modules/modulefiles
+    module load "${SRA_MODULE:-sra-tools/3.2.1}"
+fi
 
 command -v prefetch      >/dev/null || { echo "ERROR: prefetch not on PATH (load sra-tools)" >&2; exit 2; }
 command -v fasterq-dump  >/dev/null || { echo "ERROR: fasterq-dump not on PATH (load sra-tools)" >&2; exit 2; }
