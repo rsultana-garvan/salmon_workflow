@@ -73,7 +73,7 @@ CCLE RNA-seq in PRJNA523380 is **open** data (no token, no dbGaP), so it can run
   1. `qsub prefetch_sra.sh` on **copyq** -- `.sra` only (~8.5 GB/run, ~11 min). Idempotent via `.done` markers.
   2. `qsub dump_sra_fastq.pbs` on **normal** (16 CPUs, temp in `$PBS_JOBFS`) -- fasterq-dump + pigz, writes
      `<OUTDIR>/fastq_samplesheet.csv`. CCLE runs are aligned cSRA, so this needs the reference sequences that
-     prefetch stored under `<OUTDIR>/ncbi` (same `NCBI_SETTINGS` file in both stages).
+     prefetch stored beside each `.sra` in `<OUTDIR>/sra/<SRR>/` (verified: they land there; do not split the directory).
   3. `qsub run_salmon.pbs` on **normal** -- `--fastq_samplesheet` mode; pre-downloaded FASTQs are inputs so are never deleted.
   `download_sra_fastq.sh` still does 1+2 in one 1-CPU copyq job (measured: SRR8616130, 16.4 Gbases: 64 min =
   11 prefetch + 16 fasterq-dump + 37 single-thread gzip). Both assumptions below were verified by that run:
@@ -138,7 +138,7 @@ Verified on Gadi (2026-10-23, SRR8616130 via `download_sra_fastq.sh` on copyq, e
 
 STILL NOT verified for the SRA path:
 - Offline `fasterq-dump` on `normal` (dump_sra_fastq.pbs): these are aligned cSRA runs (72 reference
-  dependencies), so it needs the refseqs that prefetch fetched; where prefetch put them is unconfirmed.
+  dependencies), so it needs the refseqs that prefetch put beside the `.sra`; not yet confirmed offline.
 - `docker/Dockerfile.sra` has never been built; `params.sra_fused_container` is a placeholder tag.
 - Disk sizing: liver runs are ~17-23 Gbases, so confirm the `sra` label's 100 GB covers
   `.sra` + fasterq-dump temp + FASTQ before scaling up.

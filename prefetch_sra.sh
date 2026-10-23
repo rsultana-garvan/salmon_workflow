@@ -15,10 +15,10 @@
 # fasterq-dump + gzip work off the 1-CPU copyq.
 #
 # CCLE runs are ALIGNED (cSRA): the .sra holds differences against GRCh38, so
-# prefetch also pulls ~72 reference sequences, and fasterq-dump needs them
-# locally when it later runs with no network. Everything therefore stays under
-# one directory ($OUTDIR/ncbi + $OUTDIR/sra), and both stages use the same
-# NCBI_SETTINGS file. Do not delete $OUTDIR/ncbi between stages.
+# prefetch also pulls ~72 reference sequences (~0.7 GB). Verified: with
+# --output-directory they land inside the run's own directory, beside
+# <SRR>.sra, which is where fasterq-dump looks for them when it later runs
+# with no network. So keep each $OUTDIR/sra/<SRR>/ directory whole.
 #
 # Usage:
 #   qsub -v SRA_SHEET=sra_samplesheet_liver.csv,OUTDIR=/g/data/vh48/AmaroqTx/ccle_fastq prefetch_sra.sh
@@ -41,19 +41,16 @@ fi
 command -v prefetch >/dev/null || { echo "ERROR: prefetch not on PATH (load sra-tools)" >&2; exit 2; }
 [ -f "$SRA_SHEET" ] || { echo "ERROR: samplesheet not found: $SRA_SHEET" >&2; exit 2; }
 
-mkdir -p "$OUTDIR/sra" "$OUTDIR/ncbi"
+mkdir -p "$OUTDIR/sra"
 OUTDIR="$(cd "$OUTDIR" && pwd)"
 
-# Same file as dump_sra_fastq.pbs (it is only created if missing). The
-# repository root keeps prefetch's reference downloads beside the data instead
-# of in $HOME; UNVERIFIED that the key is honoured, so check the log for where
-# the ncbi-acc: files land (find $OUTDIR -name 'NC_012920*').
+# Same file as dump_sra_fastq.pbs (only created if missing). Keeps sra-tools
+# from writing a config into $HOME.
 export NCBI_SETTINGS="$OUTDIR/user-settings.mkfg"
 if [ ! -f "$NCBI_SETTINGS" ]; then
-    cat > "$NCBI_SETTINGS" <<MKFG
+    cat > "$NCBI_SETTINGS" <<'MKFG'
 /LIBS/GUID = "5c0d1f66-0a0b-4e1a-9a5a-2d1f6b5a7c31"
 /libs/cloud/report_instance_identity = "true"
-/repository/user/main/public/root = "$OUTDIR/ncbi"
 MKFG
 fi
 

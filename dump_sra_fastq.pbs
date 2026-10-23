@@ -24,8 +24,8 @@
 # resubmitted. DELETE_SRA=1 removes a run's .sra after its FASTQs are written.
 #
 # These are aligned (cSRA) runs: fasterq-dump needs the reference sequences
-# that prefetch_sra.sh stored under $OUTDIR/ncbi. If it fails here with a
-# reference/network error, that is the cause: see the notes in prefetch_sra.sh.
+# that prefetch stored beside each .sra in $OUTDIR/sra/<SRR>/. UNVERIFIED
+# offline; if it fails here with a reference/network error, that is the cause.
 
 set -euo pipefail
 
